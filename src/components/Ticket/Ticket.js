@@ -10,12 +10,12 @@ import {
   StyledValue,
 } from "./StyledTicket";
 
-export function Ticket() {
+export function Ticket({price, origin, destination, originBack, destinationBack, stops, stopsBack, stopsCity, stopsCityBack}) {
   return (
     <StyledRow>
       <Row>
         <Col lg={4} sm={4} xs={4}>
-          <StyledPrice>1780 P</StyledPrice>
+          <StyledPrice>{price} р.</StyledPrice>
         </Col>
         <Col
           lg={{ span: 4, offset: 4 }}
@@ -32,11 +32,11 @@ export function Ticket() {
 
         <Col lg={4} sm={4} xs={4}>
           <StyledDiv>
-            <StyledTitle>HWT-KWT</StyledTitle>
+            <StyledTitle>{origin}-{destination}</StyledTitle>
             <StyledValue>10:45-08:00</StyledValue>
           </StyledDiv>
           <StyledDiv>
-            <StyledTitle>HWT-KWT</StyledTitle>
+            <StyledTitle>{originBack}-{destinationBack}</StyledTitle>
             <StyledValue>10:45-08:00</StyledValue>
           </StyledDiv>
         </Col>
@@ -52,12 +52,12 @@ export function Ticket() {
         </Col>
         <Col lg={4} sm={4} xs={4}>
           <StyledDiv>
-            <StyledTitle>2 пересадки</StyledTitle>
-            <StyledValue>HKB, JNB</StyledValue>
+            <StyledTitle>{stops} пересадки</StyledTitle>
+            <StyledValue>{stopsCity}</StyledValue>
           </StyledDiv>
           <StyledDiv>
-            <StyledTitle>2 пересадки</StyledTitle>
-            <StyledValue>HKB, JNB</StyledValue>
+            <StyledTitle>{stopsBack} пересадки</StyledTitle>
+            <StyledValue>{stopsCityBack}</StyledValue>
           </StyledDiv>
         </Col>
       </Row>

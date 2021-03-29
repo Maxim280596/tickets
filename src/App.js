@@ -5,9 +5,11 @@ import { Filter } from "./components/Filter/Filter";
 import { TicketsList } from "./components/TicketList/TicketsList";
 import { Logo } from "./components/Logo/Logo";
 import { GlobalStyle } from "./StyledApp";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 function App() {
   return (
+    <Router>
     <div className="App">
       <GlobalStyle />
       <Container>
@@ -24,7 +26,9 @@ function App() {
           </Col>
         </Row>
       </Container>
+      
     </div>
+    </Router>
   );
 }
 
