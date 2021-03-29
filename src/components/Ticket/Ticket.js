@@ -1,48 +1,27 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import styled from "styled-components";
 
-const StyledRow = styled.div`
-  border-radius: 6px;
-  box-shadow: 1px 1px 4px 1px #e0e0e0;
-  text-align: center;
-  margin-bottom: 20px;
-  background-color: white;
-`;
-const StyledPrice = styled(Col)`
-  align-items: center;
-  color: #2196F3;
-  font-size: 35px;
-  padding: 20px;
-`;
-
-const StyledImg = styled.img`
-  width:100%;
-  height:100%;
-  padding: 20px;
-`;
-
-const StyledDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 15px;
-`;
-
-const StyledTitle = styled.span`
-  color: #B6C2C9;
-  font-weight: 400;
-  margin-bottom:0;
-`;
+import {
+  StyledDiv,
+  StyledRow,
+  StyledPrice,
+  StyledImg,
+  StyledTitle,
+  StyledValue,
+} from "./StyledTicket";
 
 export function Ticket() {
   return (
     <StyledRow>
       <Row>
-        <Col lg={4}>
-          <StyledPrice>1780 UAH</StyledPrice>
+        <Col lg={4} sm={4} xs={4}>
+          <StyledPrice>1780 P</StyledPrice>
         </Col>
-        <Col lg={{ span: 4, offset: 4 }}>
+        <Col
+          lg={{ span: 4, offset: 4 }}
+          sm={{ span: 4, offset: 4 }}
+          xs={{ span: 5, offset: 3 }}
+        >
           <div>
             <StyledImg
               src="https://upload.wikimedia.org/wikipedia/commons/c/c2/S7_new_logo.svg"
@@ -51,34 +30,34 @@ export function Ticket() {
           </div>
         </Col>
 
-        <Col lg={4}>
+        <Col lg={4} sm={4} xs={4}>
           <StyledDiv>
             <StyledTitle>HWT-KWT</StyledTitle>
-            <span>10:45-08:00</span>
+            <StyledValue>10:45-08:00</StyledValue>
           </StyledDiv>
           <StyledDiv>
             <StyledTitle>HWT-KWT</StyledTitle>
-            <span>10:45-08:00</span>
+            <StyledValue>10:45-08:00</StyledValue>
           </StyledDiv>
         </Col>
-        <Col lg={4}>
+        <Col lg={4} sm={4} xs={4}>
           <StyledDiv>
             <StyledTitle>В пути</StyledTitle>
-            <span>10:45-08:00</span>
+            <StyledValue>21ч 15мин</StyledValue>
           </StyledDiv>
           <StyledDiv>
             <StyledTitle>В пути</StyledTitle>
-            <span>10:45-08:00</span>
+            <StyledValue>21ч 15мин</StyledValue>
           </StyledDiv>
         </Col>
-        <Col lg={4}>
+        <Col lg={4} sm={4} xs={4}>
           <StyledDiv>
             <StyledTitle>2 пересадки</StyledTitle>
-            <span>10:45-08:00</span>
+            <StyledValue>HKB, JNB</StyledValue>
           </StyledDiv>
           <StyledDiv>
             <StyledTitle>2 пересадки</StyledTitle>
-            <span>10:45-08:00</span>
+            <StyledValue>HKB, JNB</StyledValue>
           </StyledDiv>
         </Col>
       </Row>
