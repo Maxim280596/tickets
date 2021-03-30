@@ -1,8 +1,10 @@
 import React from 'react';
-import {StyledCheckbox} from './StyledInput'
+import {StyledCheckbox} from '../../styled/SearchInput/StyledInput'
 
-export function SearchInput ({inline,label,type, id}) {
 
+export const SearchInput = ({inline,label,type, id , onClick}) => {
+  
+    
   return (
     
         <div>

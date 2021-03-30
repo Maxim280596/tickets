@@ -1,7 +1,7 @@
 import React from "react";
-import { StyledButtonFast, StyledButtonPrice } from "./StyledFilter";
+import { StyledButtonFast, StyledButtonPrice } from "../../styled/Filter/StyledFilter";
 
-export function Filter() {
+export const Filter = () => {
   return (
     <div>
       <StyledButtonPrice variant="primary" size="lg">

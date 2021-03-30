@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Form } from "react-bootstrap";
+import {HOVER_INPUT_COLOR} from '../GlobalConstStyles';
+
 
 export const StyledCheckbox = styled(Form.Check)`
   padding-left: 25px;
@@ -7,6 +9,6 @@ export const StyledCheckbox = styled(Form.Check)`
   padding-top: 10px;
   width: 100%;
   &:hover {
-    background-color: #f1fcff;
+    background-color: ${HOVER_INPUT_COLOR};
   }
 `;

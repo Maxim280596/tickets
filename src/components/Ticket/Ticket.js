@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-
 import {
   StyledDiv,
   StyledRow,
@@ -8,9 +7,22 @@ import {
   StyledImg,
   StyledTitle,
   StyledValue,
-} from "./StyledTicket";
+} from "../../styled/Ticket/StyledTicket";
 
-export function Ticket({price, origin, destination, originBack, destinationBack, stops, stopsBack, stopsCity, stopsCityBack}) {
+
+
+
+export const Ticket = ({
+  price,
+  origin,
+  destination,
+  originBack,
+  destinationBack,
+  stops,
+  stopsBack,
+  stopsCity,
+  stopsCityBack,
+}) => {
   return (
     <StyledRow>
       <Row>
@@ -32,11 +44,15 @@ export function Ticket({price, origin, destination, originBack, destinationBack,
 
         <Col lg={4} sm={4} xs={4}>
           <StyledDiv>
-            <StyledTitle>{origin}-{destination}</StyledTitle>
+            <StyledTitle>
+              {origin}-{destination}
+            </StyledTitle>
             <StyledValue>10:45-08:00</StyledValue>
           </StyledDiv>
           <StyledDiv>
-            <StyledTitle>{originBack}-{destinationBack}</StyledTitle>
+            <StyledTitle>
+              {originBack}-{destinationBack}
+            </StyledTitle>
             <StyledValue>10:45-08:00</StyledValue>
           </StyledDiv>
         </Col>
@@ -63,4 +79,4 @@ export function Ticket({price, origin, destination, originBack, destinationBack,
       </Row>
     </StyledRow>
   );
-}
+};

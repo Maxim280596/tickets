@@ -1,58 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { Ticket } from "../Ticket/Ticket";
 
-export function TicketsList() {
-  const [searchId, setSearchId] = useState("");
-  const [tickets, setTickets] = useState([]);
+export const TicketsList = () => {
+  // const [searchId, setSearchId] = useState("");
+  // const [tickets, setTickets] = useState([]);
 
-  useEffect(() => {
-    const getId = async () => {
-      await fetch("https://front-test.beta.aviasales.ru/search")
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          // console.log(data)
-          setSearchId(data.searchId);
-        });
-    };
-    getId();
-  }, []);
+  // useEffect(() => {
+  //   const getId = async () => {
+  //     await fetch("https://front-test.beta.aviasales.ru/search")
+  //       .then((response) => {
+  //         return response.json();
+  //       })
+  //       .then((data) => {
+  //         // console.log(data)
+  //         setSearchId(data.searchId);
+  //       });
+  //   };
+  //   getId();
+  // }, []);
 
-  useEffect(() => {
-    const getTickets = async () => {
-      await fetch(
-        `https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`
-      )
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          setTickets(data.tickets);
-          // setSearchId(data.searchId)
-          // console.log(tickets)
-        });
-    };
-    getTickets();
-  }, [searchId]);
+  // useEffect(() => {
+  //   const getTickets = async () => {
+  //     await fetch(
+  //       `https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`
+  //     )
+  //       .then((response) => {
+  //         return response.json();
+  //       })
+  //       .then((data) => {
+  //         setTickets(data.tickets);
+  //         // setSearchId(data.searchId)
+  //         // console.log(tickets)
+  //       });
+  //   };
+  //   getTickets();
+  // }, [searchId]);
 
-  console.log(tickets);
+  // console.log(tickets);
 
-  //  fetch('https://front-test.beta.aviasales.ru/search')
-  //   .then((response) => {
-  //     return response.json();
-  //   })
-  //   .then((data) => {
-  //     // console.log(data)
-  //     return searchId = data.searchId
 
-  //   });
-
-  console.log(searchId);
+  // console.log(searchId);
 
   return (
     <div>
-      {tickets.map((item) => (
+      {/* {tickets.map((item) => (
         <Ticket
           key={item.price.toString()}
           price={item.price}
@@ -69,7 +60,7 @@ export function TicketsList() {
             it
           )).join(', ')}
         />
-      ))}
+      ))} */}
       {/* <Ticket />
       <Ticket />
       <Ticket />
