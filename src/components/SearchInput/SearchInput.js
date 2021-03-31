@@ -2,13 +2,13 @@ import React from 'react';
 import {StyledCheckbox} from '../../styled/SearchInput/StyledInput'
 
 
-export const SearchInput = ({inline,label,type, id , onClick}) => {
+export const SearchInput = ({inline,label,type, id , onChange, checked, key}) => {
   
     
   return (
     
         <div>
-          <StyledCheckbox id={id} inline={inline} label={label} type={type} />
+          <StyledCheckbox key={key} onChange={onChange} id={id} inline={inline} label={label} type={type} checked={checked} />
         </div>
         
   )

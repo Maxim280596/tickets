@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import { Ticket } from "../Ticket/Ticket";
 
 export const TicketsList = () => {
@@ -61,12 +61,12 @@ export const TicketsList = () => {
           )).join(', ')}
         />
       ))} */}
-      {/* <Ticket />
       <Ticket />
       <Ticket />
       <Ticket />
       <Ticket />
-      <Ticket /> */}
+      <Ticket />
+      <Ticket />
     </div>
   );
 }
