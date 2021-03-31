@@ -1,9 +1,9 @@
 import React from "react";
 import { Row, Container } from "react-bootstrap";
-import Logotype from "../../Logo.png";
-import { StyledLogo, StyledLogoCol } from "./StyledLogo";
+import Logotype from "../../logo.png";
+import { StyledLogo, StyledLogoCol } from "../../styled/Logo/StyledLogo";
 
-export function Logo() {
+export const Logo = () => {
   return (
     <Container>
       <Row>

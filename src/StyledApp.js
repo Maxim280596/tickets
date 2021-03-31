@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
-
+import {BODY_BG_COLOR} from './styled/GlobalConstStyles'
 export const GlobalStyle = createGlobalStyle`
   body {
-    background-color:#f3f7fa  ;
+    background-color:${BODY_BG_COLOR};
     font-family: 'Roboto', sans-serif;
   }
 
@@ -13,6 +13,5 @@ export const GlobalStyle = createGlobalStyle`
 
   input {
     transform: scale(1.5); 
-    
-  }
+    }
 `;

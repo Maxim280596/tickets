@@ -1,13 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Col, Row } from "react-bootstrap";
-import { Search } from "./components/Search/Search";
-import { Filter } from "./components/Filter/Filter";
-import { TicketsList } from "./components/TicketList/TicketsList";
-import { Logo } from "./components/Logo/Logo";
+import {Search, Filter, TicketsList, Logo} from './components/index'
 import { GlobalStyle } from "./StyledApp";
+import {BrowserRouter as Router} from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
+    <Router>
     <div className="App">
       <GlobalStyle />
       <Container>
@@ -24,7 +23,9 @@ function App() {
           </Col>
         </Row>
       </Container>
+      
     </div>
+    </Router>
   );
 }
 

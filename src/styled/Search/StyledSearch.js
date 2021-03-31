@@ -1,14 +1,15 @@
-import { Form } from "react-bootstrap";
+
 import styled from "styled-components";
+import {WHITE_COLOR, BOX_COLOR} from '../GlobalConstStyles';
 
 export const StyledForm = styled.form`
   font-size: 20px;
-  box-shadow: 1px 1px 4px 1px #e0e0e0;
+  box-shadow: 1px 1px 4px 1px ${BOX_COLOR};
   display: flex;
   align-items: left;
   flex-direction: column;
   border-radius: 6px;
-  background-color: white;
+  background-color: ${WHITE_COLOR};
   width: 85%;
   padding-bottom: 10px;
   padding-top: 30px;
@@ -29,12 +30,4 @@ export const StyledForm = styled.form`
   }
 `;
 
-export const StyledCheckbox = styled(Form.Check)`
-  padding-left: 25px;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  width: 100%;
-  &:hover {
-    background-color: #f1fcff;
-  }
-`;
+
