@@ -1,26 +1,102 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { StyledForm } from "../../styled/Search/StyledSearch";
 import { SearchInput } from "../SearchInput/SearchInput";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 export const Search = () => {
   //  const [filterURL, setFilterURL] = useState({});
-  const [state, setState] = useState({
-    all: false,
-    no: false,
-    one: false,
-    two: false,
-    three: false,
+  const [all, setAll] = useState({
+    check: false,
+    id: "",
+   
   });
-
+  const [no, setNo] = useState({
+    check: false,
+    id: "",
+  });
+  const [one, setOne] = useState({
+    check: false,
+    id: "",
+  });
+  const [two, setTwo] = useState({
+    check: false,
+    id: "",
+    path: "",
+  });
+  const [three, setThree] = useState({
+    check: false,
+    id: "",
+  });
   let history = useHistory();
 
-  // const handleToggle = (e) => {
-  //   const { id, checked } = e.target;
-  //   history.push(`/${id}`);
-  //   setState({ all: checked });
-  //   console.log(state);
-  // };
+  const allToggle = (e) => {
+    history.push(`/${e.target.id}`);
+    setAll({
+      check: e.target.checked,
+      id: e.target.id,
+      
+    });
+
+    console.log(all);
+  };
+  const noToggle = (e) => {
+    history.push(`/${e.target.id}`);
+    setNo({
+      check: e.target.checked,
+      id: e.target.id,
+    });
+    console.log(no);
+  };
+
+  const oneToggle = (e) => {
+    history.push(`/${e.target.id}`);
+    setOne({
+      check: e.target.checked,
+      id: e.target.id,
+    });
+    console.log(one);
+  };
+
+  const twoToggle = (e) => {
+    history.push(`/${e.target.id}`);
+    setTwo({
+      check: e.target.checked,
+      id: e.target.id,
+    });
+    console.log(two);
+  };
+
+  const threeToggle = (e) => {
+    history.push(`/${e.target.id}`);
+    setThree({
+      check: e.target.checked,
+      id: e.target.id,
+    });
+    console.log(three);
+  };
+
+  useEffect(() => {
+    const { pathname } = history.location;
+    switch (pathname) {
+      case "/all":
+        setAll({ check: true });
+        break;
+      case "/no":
+        setNo({ check: true });
+        break;
+      case "/one":
+        setOne({ check: true });
+        break;
+      case "/two":
+        setTwo({ check: true });
+        break;
+      case "/three":
+        setThree({ check: true });
+        break;
+      default:
+        break;
+    }
+  }, []);
 
   // let value = useParams();
   // console.log(value)
@@ -50,73 +126,51 @@ export const Search = () => {
           <h5>КОЛИЧЕСТВО ПЕРЕСАДОК</h5>
           <SearchInput
             name={1}
-            onChange={(e) => {
-              history.push(`/${e.target.id}`);
-              setState({ all: !e.target.checked });
-              console.log(state)
-            }}
+            onChange={allToggle}
             id="all"
             inline
             label="Все"
             type="checkbox"
-            checked={state.id}
+            checked={all.check}
           />
           <SearchInput
             name={2}
-            onChange={(e) => {
-              history.push(`/${e.target.id}`);
-              setState({ no: !e.target.checked });
-              console.log(state)
-            }}
+            onChange={noToggle}
             id="no"
             inline
             label="Без пересадок"
             type="checkbox"
-            checked={state.id}
+            checked={no.check}
           />
           <SearchInput
             name={3}
-            onChange={(e) => {
-              history.push(`/${e.target.id}`);
-              setState({ one: !e.target.checked });
-              console.log(state)
-            }}
+            onChange={oneToggle}
             id="one"
             inline
             label="1 пересадка"
             type="checkbox"
-            checked={state.id}
+            checked={one.check}
           />
           <SearchInput
             name={4}
-            onChange={(e) => {
-              history.push(`/${e.target.id}`);
-              setState({ two: !e.target.checked });
-              console.log(state)
-            }}
+            onChange={twoToggle}
             id="two"
             inline
             label="2 пересадки"
             type="checkbox"
-            checked={state.id}
+            checked={two.check}
           />
           <SearchInput
             name={5}
-            onChange={(e) => {
-              history.push(`/${e.target.id}`);
-              setState({ three: !e.target.checked });
-              console.log(state)
-            }}
+            onChange={threeToggle}
             id="three"
             inline
             label="3 пересадки"
             type="checkbox"
-            checked={state.id}
+            checked={three.check}
           />
         </div>
-        
       </StyledForm>
     </Router>
-    
   );
 };
