@@ -5,6 +5,7 @@ export function TicketsList() {
   return (
     <div>
       <Ticket />
+       
       <Ticket />
       <Ticket />
       <Ticket />
