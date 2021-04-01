@@ -1,7 +1,10 @@
 import React  from "react";
+import { connect } from 'react-redux';
 import { Ticket } from "../Ticket/Ticket";
 
-export const TicketsList = () => {
+
+
+ const TicketsList = ({syncTickets}) => {
   // const [searchId, setSearchId] = useState("");
   // const [tickets, setTickets] = useState([]);
 
@@ -71,3 +74,12 @@ export const TicketsList = () => {
     </div>
   );
 }
+
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    syncTickets: state.tickets.tickets
+  }
+}
+
+export default connect(mapStateToProps, null)(TicketsList)
