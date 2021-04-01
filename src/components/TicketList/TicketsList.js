@@ -1,43 +1,41 @@
-import React  from "react";
+import React, {useEffect}  from "react";
+import { useDispatch} from 'react-redux'
 import { connect } from 'react-redux';
+import { loadData, loadTickets } from "../../actions";
 import { Ticket } from "../Ticket/Ticket";
 
 
 
- const TicketsList = ({syncTickets}) => {
+ const TicketsList = (props) => {
   // const [searchId, setSearchId] = useState("");
   // const [tickets, setTickets] = useState([]);
 
-  // useEffect(() => {
-  //   const getId = async () => {
-  //     await fetch("https://front-test.beta.aviasales.ru/search")
-  //       .then((response) => {
-  //         return response.json();
-  //       })
-  //       .then((data) => {
-  //         // console.log(data)
-  //         setSearchId(data.searchId);
-  //       });
-  //   };
-  //   getId();
-  // }, []);
+ const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   const getTickets = async () => {
-  //     await fetch(
-  //       `https://front-test.beta.aviasales.ru/tickets?searchId=${searchId}`
-  //     )
-  //       .then((response) => {
-  //         return response.json();
-  //       })
-  //       .then((data) => {
-  //         setTickets(data.tickets);
-  //         // setSearchId(data.searchId)
-  //         // console.log(tickets)
-  //       });
-  //   };
-  //   getTickets();
-  // }, [searchId]);
+ useEffect(()=>{
+   
+  dispatch(loadData())
+  
+ }, [dispatch])
+//  useEffect(()=>{
+//   if(props.store.reducer.data.searchId) {
+//  dispatch(loadTickets(props.store.reducer.data.searchId))
+//   } else {
+//     console.log('error')
+//   }
+// }, [dispatch])
+
+//  useEffect(()=>{
+//   dispatch(loadTickets())
+//  }, [])
+ 
+
+
+// console.log(props.store.reducer.data.searchId)
+    
+     
+    
+      
 
   // console.log(tickets);
 
@@ -75,11 +73,10 @@ import { Ticket } from "../Ticket/Ticket";
   );
 }
 
-const mapStateToProps = state => {
-  console.log(state)
-  return {
-    syncTickets: state.tickets.tickets
-  }
-}
 
-export default connect(mapStateToProps, null)(TicketsList)
+
+export default connect(state => ({
+  
+    store: state
+  
+})) (TicketsList)

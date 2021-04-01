@@ -1,33 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, compose, applyMiddleware } from 'redux';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {rootReducer} from './redux/rootReducer';
 import {Provider} from 'react-redux';
-import createSagaMiddleware from 'redux-saga'
-import {sagaWatcher} from './redux/sagas';
+// import reducers from './reducers/index';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import  reducers  from './reducer';
+import logger from 'redux-logger';
+import { watchLoadData, watchLoadTickets } from './sagas';
 
-const saga = createSagaMiddleware()
 
-const store = createStore(rootReducer, compose(
-  
-  applyMiddleware(saga),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-))
 
-saga.run(sagaWatcher)
+const sagaMiddleware = createSagaMiddleware()
+const store = createStore(reducers,applyMiddleware(logger, sagaMiddleware));
+sagaMiddleware.run(watchLoadData)
+sagaMiddleware.run(watchLoadTickets)
 
-const app = (
-  <Provider store={store}>
-    <React.StrictMode>
-    <App/>
-    </React.StrictMode>
-  </Provider>
-)
+
 
 ReactDOM.render(
-  app,
+  <Provider store={store}><React.StrictMode><App/></React.StrictMode></Provider>,
   document.getElementById('root')
 );
 
