@@ -1,5 +1,6 @@
-import React from "react";
-import { StyledButtonFast, StyledButtonPrice } from "../../styled/Filter/StyledFilter";
+import React from 'react';
+
+import { StyledButtonFast, StyledButtonPrice } from '../../styled/Filter/StyledFilter';
 
 export const Filter = () => {
   return (

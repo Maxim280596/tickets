@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { StyledForm } from "../../styled/Search/StyledSearch";
-import { SearchInput } from "../SearchInput/SearchInput";
-import { BrowserRouter as Router } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+
+import { StyledForm } from '../../styled/Search/StyledSearch';
+import { SearchInput } from '../SearchInput/SearchInput';
+
 export const Search = () => {
-  //  const [filterURL, setFilterURL] = useState({});
+
   const [state, setState] = useState({
     all: false,
     no: false,
@@ -15,34 +17,6 @@ export const Search = () => {
 
   let history = useHistory();
 
-  // const handleToggle = (e) => {
-  //   const { id, checked } = e.target;
-  //   history.push(`/${id}`);
-  //   setState({ all: checked });
-  //   console.log(state);
-  // };
-
-  // let value = useParams();
-  // console.log(value)
-
-  //   function handleCheckAll() {
-  //     history.push("/all",setFilerURL(filterURL) );
-
-  //   }
-  //   function handleCheckNoStops() {
-  //     history.push("/nostops");
-  //   }
-
-  // function handleCheckOneStops() {
-  //   history.push("/onestop");
-  // }
-  // function handleCheckTwoStops() {
-  //   history.push("/twostops");
-  // }
-  // function handleCheckThreeStops() {
-  //   history.push("/threstops");
-  // }
-  // console.log(state)
   return (
     <Router>
       <StyledForm>

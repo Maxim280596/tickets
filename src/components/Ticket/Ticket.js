@@ -1,5 +1,6 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
+import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+
 import {
   StyledDiv,
   StyledRow,
@@ -7,7 +8,7 @@ import {
   StyledImg,
   StyledTitle,
   StyledValue,
-} from "../../styled/Ticket/StyledTicket";
+} from '../../styled/Ticket/StyledTicket';
 
 
 
@@ -23,6 +24,7 @@ export const Ticket = ({
   stopsCity,
   stopsCityBack,
 }) => {
+
   return (
     <StyledRow>
       <Row>
