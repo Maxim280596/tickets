@@ -1,33 +1,51 @@
 import React, {useEffect}  from "react";
 import { useDispatch} from 'react-redux'
 import { connect } from 'react-redux';
-import { loadData, loadTickets } from "../../actions";
-import { Ticket } from "../Ticket/Ticket";
 
+import { Ticket } from "../Ticket/Ticket";
+import {fetchId} from '../../store/idReducer';
+import {fetchTickets} from '../../store/ticketsReducer';
 
 
  const TicketsList = (props) => {
   // const [searchId, setSearchId] = useState("");
   // const [tickets, setTickets] = useState([]);
 
- const dispatch = useDispatch();
+//  console.log(state.state.idReducer.searchId.searchId, 'hi')
 
+// console.log(props)
+const dispatch = useDispatch();
+
+
+ 
  useEffect(()=>{
    
-  dispatch(loadData())
+dispatch(fetchId())
+ 
   
- }, [dispatch])
-//  useEffect(()=>{
-//   if(props.store.reducer.data.searchId) {
-//  dispatch(loadTickets(props.store.reducer.data.searchId))
-//   } else {
-//     console.log('error')
-//   }
-// }, [dispatch])
+ }, [])
+
+console.log(props.state)
+ 
 
 //  useEffect(()=>{
-//   dispatch(loadTickets())
-//  }, [])
+   
+// dispatch(fetchTickets(props.searchId.searchId))
+//  console.log(props.searchId)
+//  }, [props.searchId])  
+
+//  console.log(state.state.idReducer.searchId.searchId)
+ console.log(props, 'dssdfsddsd')
+
+//  useEffect(()=>{
+//   dispatch(fetchTickets(state.state.idReducer.searchId.searchId))
+// }, [state.state.idReducer.searchId.searchId])
+
+//  useEffect(()=>{
+//    if(state.state.reducer.searchId) {
+//   dispatch(putTickets())
+//    }
+//  }, [state.state.reducer.searchId, dispatch])
  
 
 
@@ -73,10 +91,13 @@ import { Ticket } from "../Ticket/Ticket";
   );
 }
 
+const mapStateToProps = function(state) {
+  return {
+    state: state
+    // loggedIn: state.auth.loggedIn
+  }
+}
+
+export default connect(mapStateToProps)(TicketsList);
 
 
-export default connect(state => ({
-  
-    store: state
-  
-})) (TicketsList)

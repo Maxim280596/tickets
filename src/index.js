@@ -3,19 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
-// import reducers from './reducers/index';
-import { createStore, applyMiddleware, compose } from 'redux';
-import createSagaMiddleware from 'redux-saga';
-import  reducers  from './reducer';
-import logger from 'redux-logger';
-import { watchLoadData, watchLoadTickets } from './sagas';
+
+import {store} from "./store";
 
 
 
-const sagaMiddleware = createSagaMiddleware()
-const store = createStore(reducers,applyMiddleware(logger, sagaMiddleware));
-sagaMiddleware.run(watchLoadData)
-sagaMiddleware.run(watchLoadTickets)
 
 
 
