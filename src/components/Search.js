@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
-import { StyledForm } from '../../styled/Search/StyledSearch';
-import { SearchInput } from '../SearchInput/SearchInput';
+import { StyledForm } from '../styled/StyledSearch';
+import { SearchInput } from './SearchInput';
 
 export const Search = () => {
-
   const [state, setState] = useState({
     all: false,
     no: false,
@@ -17,18 +16,20 @@ export const Search = () => {
 
   let history = useHistory();
 
+const handleChange = (e) => {
+  history.push(`/${e.target.name}`);
+              setState({ [e.target.name]: !e.target.checked });
+              console.log(state);
+}
+
   return (
     <Router>
       <StyledForm>
         <div>
           <h5>КОЛИЧЕСТВО ПЕРЕСАДОК</h5>
           <SearchInput
-            name={1}
-            onChange={(e) => {
-              history.push(`/${e.target.id}`);
-              setState({ all: !e.target.checked });
-              console.log(state)
-            }}
+            name='all'
+            onChange={handleChange}
             id="all"
             inline
             label="Все"
@@ -36,12 +37,8 @@ export const Search = () => {
             checked={state.id}
           />
           <SearchInput
-            name={2}
-            onChange={(e) => {
-              history.push(`/${e.target.id}`);
-              setState({ no: !e.target.checked });
-              console.log(state)
-            }}
+            name='no'
+            onChange={handleChange}
             id="no"
             inline
             label="Без пересадок"
@@ -49,12 +46,8 @@ export const Search = () => {
             checked={state.id}
           />
           <SearchInput
-            name={3}
-            onChange={(e) => {
-              history.push(`/${e.target.id}`);
-              setState({ one: !e.target.checked });
-              console.log(state)
-            }}
+            name='one'
+            onChange={handleChange}
             id="one"
             inline
             label="1 пересадка"
@@ -62,12 +55,8 @@ export const Search = () => {
             checked={state.id}
           />
           <SearchInput
-            name={4}
-            onChange={(e) => {
-              history.push(`/${e.target.id}`);
-              setState({ two: !e.target.checked });
-              console.log(state)
-            }}
+            name='two'
+            onChange={handleChange}
             id="two"
             inline
             label="2 пересадки"
@@ -75,12 +64,8 @@ export const Search = () => {
             checked={state.id}
           />
           <SearchInput
-            name={5}
-            onChange={(e) => {
-              history.push(`/${e.target.id}`);
-              setState({ three: !e.target.checked });
-              console.log(state)
-            }}
+            name='three'
+            onChange={handleChange}
             id="three"
             inline
             label="3 пересадки"
@@ -88,9 +73,7 @@ export const Search = () => {
             checked={state.id}
           />
         </div>
-        
       </StyledForm>
     </Router>
-    
   );
 };

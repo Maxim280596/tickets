@@ -1,6 +1,6 @@
 import React  from 'react';
 
-import { Ticket } from '../Ticket/Ticket';
+import { Ticket } from './Ticket';
 
 export const TicketsList = () => {
   

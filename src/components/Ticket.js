@@ -8,7 +8,7 @@ import {
   StyledImg,
   StyledTitle,
   StyledValue,
-} from '../../styled/Ticket/StyledTicket';
+} from '../styled/StyledTicket';
 
 
 

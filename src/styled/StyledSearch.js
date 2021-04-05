@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 
-import styled from "styled-components";
-import {WHITE_COLOR, BOX_COLOR} from '../GlobalConstStyles';
+import { WHITE_COLOR, BOX_COLOR } from './GlobalConstStyles';
 
 export const StyledForm = styled.form`
   font-size: 20px;
@@ -15,10 +15,9 @@ export const StyledForm = styled.form`
   padding-top: 30px;
   padding-left: 0px;
   margin-left: 60px;
-  
 
   & h5 {
-    font-size:16px;
+    font-size: 16px;
     margin-bottom: 10px;
     margin-left: 25px;
   }
@@ -29,5 +28,3 @@ export const StyledForm = styled.form`
     margin-bottom: 20px;
   }
 `;
-
-
