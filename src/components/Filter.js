@@ -1,5 +1,9 @@
-import React from "react";
-import { StyledButtonFast, StyledButtonPrice } from "../../styled/Filter/StyledFilter";
+import React from 'react';
+
+import {
+  StyledButtonFast,
+  StyledButtonPrice,
+} from '../styled/StyledFilter';
 
 export const Filter = () => {
   return (
@@ -12,4 +16,4 @@ export const Filter = () => {
       </StyledButtonFast>
     </div>
   );
-}
+};

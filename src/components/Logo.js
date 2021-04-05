@@ -1,7 +1,8 @@
-import React from "react";
-import { Row, Container } from "react-bootstrap";
-import Logotype from "../../logo.png";
-import { StyledLogo, StyledLogoCol } from "../../styled/Logo/StyledLogo";
+import React from 'react';
+
+import Logotype from '../logo.png';
+import { Row, Container } from 'react-bootstrap';
+import { StyledLogo, StyledLogoCol } from '../styled/StyledLogo';
 
 export const Logo = () => {
   return (
@@ -13,4 +14,4 @@ export const Logo = () => {
       </Row>
     </Container>
   );
-}
+};

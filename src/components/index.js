@@ -1,6 +1,6 @@
-import { Search } from "./Search/Search";
-import { Filter } from "./Filter/Filter";
-import { TicketsList } from "./TicketList/TicketsList";
-import { Logo } from "./Logo/Logo";
+import { Search } from './Search';
+import { Filter } from './Filter';
+import { TicketsList } from './TicketsList';
+import { Logo } from './Logo';
 
 export {Logo,TicketsList,Filter,Search};
