@@ -1,4 +1,4 @@
-import {applyMiddleware, combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import idReducer from "./idReducer";
 import ticketsReducer from './ticketsReducer'
 import createSagaMiddleware from 'redux-saga'
@@ -13,6 +13,11 @@ const rootReducer = combineReducers({
     
 })
 
-export const store = createStore(rootReducer, applyMiddleware(sagaMiddleware))
+export const store = createStore(rootReducer, compose( applyMiddleware(sagaMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
+
+
 
 sagaMiddleware.run(rootWatcher)
+
+export const getId = (state) => state.idReducer.searchId
+export const getStop = (state) => state.ticketsReducer.tickets.stop

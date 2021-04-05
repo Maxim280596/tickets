@@ -1,5 +1,5 @@
 import React, {useEffect}  from "react";
-import { useDispatch} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import { connect } from 'react-redux';
 
 import { Ticket } from "../Ticket/Ticket";
@@ -15,27 +15,36 @@ import {fetchTickets} from '../../store/ticketsReducer';
 
 // console.log(props)
 const dispatch = useDispatch();
+const searchId = useSelector(state => state.idReducer.searchId.searchId)
+console.log(searchId, 22)
 
-
+// dispatch(fetchId())
  
  useEffect(()=>{
-   
-dispatch(fetchId())
- 
   
+dispatch(fetchId())
+
+
  }, [])
 
-console.log(props.state)
+// const id = props.state.idReducer.searchId.searchId
+
  
 
-//  useEffect(()=>{
+ useEffect(()=>{
    
-// dispatch(fetchTickets(props.searchId.searchId))
-//  console.log(props.searchId)
-//  }, [props.searchId])  
+  return () => {
+    dispatch(fetchTickets())
+  }
+   
+   
 
-//  console.log(state.state.idReducer.searchId.searchId)
- console.log(props, 'dssdfsddsd')
+   
+ 
+ }, [searchId,dispatch])  
+
+
+
 
 //  useEffect(()=>{
 //   dispatch(fetchTickets(state.state.idReducer.searchId.searchId))
@@ -91,13 +100,13 @@ console.log(props.state)
   );
 }
 
-const mapStateToProps = function(state) {
-  return {
-    state: state
-    // loggedIn: state.auth.loggedIn
-  }
-}
+// const mapStateToProps = function(state) {
+//   return {
+//     state: state,
+//     // searchId: state.idReducer.searchId.searchId
+//   }
+// }
 
-export default connect(mapStateToProps)(TicketsList);
+export default TicketsList;
 
 
