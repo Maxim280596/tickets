@@ -1,13 +1,19 @@
-import styled from "styled-components";
-import { Col } from "react-bootstrap";
-import {WHITE_COLOR, BOX_COLOR, BLUE_COLOR, GREY_COLOR} from '../GlobalConstStyles';
+import styled from 'styled-components';
+import { Col } from 'react-bootstrap';
+
+import {
+  WHITE_COLOR,
+  BOX_COLOR,
+  BLUE_COLOR,
+  GREY_COLOR,
+} from './GlobalConstStyles';
 
 export const StyledRow = styled.div`
   border-radius: 6px;
   box-shadow: 1px 1px 4px 1px ${BOX_COLOR};
   margin-bottom: 20px;
   padding-bottom: 10px;
-  background-color:${WHITE_COLOR};
+  background-color: ${WHITE_COLOR};
 `;
 export const StyledPrice = styled(Col)`
   align-items: flex-start;

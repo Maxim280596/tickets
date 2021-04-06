@@ -1,5 +1,6 @@
-import React from "react";
-import { Row, Col } from "react-bootstrap";
+import React from 'react';
+import { Row, Col } from 'react-bootstrap';
+
 import {
   StyledDiv,
   StyledRow,
@@ -7,10 +8,7 @@ import {
   StyledImg,
   StyledTitle,
   StyledValue,
-} from "../../styled/Ticket/StyledTicket";
-
-
-
+} from '../styled/StyledTicket';
 
 export const Ticket = ({
   price,

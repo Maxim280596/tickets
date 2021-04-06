@@ -1,5 +1,7 @@
-import { createGlobalStyle } from "styled-components";
-import {BODY_BG_COLOR} from './styled/GlobalConstStyles'
+import { createGlobalStyle } from 'styled-components';
+
+import { BODY_BG_COLOR } from './styled/GlobalConstStyles';
+
 export const GlobalStyle = createGlobalStyle`
   body {
     background-color:${BODY_BG_COLOR};

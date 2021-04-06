@@ -1,4 +1,5 @@
 import { put, takeEvery, call, select } from 'redux-saga/effects';
+
 import {
   FETCH_TICKETS,
   setTickets,

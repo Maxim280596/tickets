@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import { Form } from "react-bootstrap";
-import {HOVER_INPUT_COLOR} from '../GlobalConstStyles';
+import styled from 'styled-components';
+import { Form } from 'react-bootstrap';
 
+import { HOVER_INPUT_COLOR } from './GlobalConstStyles';
 
 export const StyledCheckbox = styled(Form.Check)`
   padding-left: 25px;
