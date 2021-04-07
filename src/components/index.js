@@ -1,6 +1,6 @@
-import  Search  from './Search';
-import  Filter  from './Filter';
+import Search from './Search';
+import Filter from './Filter';
 import TicketsList from './TicketsList';
-import { Logo } from './Logo';
+import Logo from './Logo';
 
 export { Logo, TicketsList, Filter, Search };

@@ -3,8 +3,8 @@ import { connect, useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Ticket } from './Ticket';
-import { fetchId } from '../store/idReducer';
-import { fetchTickets, renderTickets } from '../store/ticketsReducer';
+import { fetchId } from '../src/redux/ducks/idReducer';
+import { fetchTickets, renderTickets } from '../src/redux/ducks/ticketsReducer';
 
 const TicketsList = ({ state }) => {
   const dispatch = useDispatch();

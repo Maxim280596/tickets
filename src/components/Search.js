@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, useHistory } from 'react-router-dom';
 
 import {
@@ -8,11 +8,11 @@ import {
   filteringNoStop,
   filteringThreeStop,
   filteringTwoStop,
-} from '../store/ticketsReducer';
+} from '../src/redux/ducks/ticketsReducer';
 import { StyledForm } from '../styled/StyledSearch';
 import { SearchInput } from './SearchInput';
 
-const Search = (props) => {
+const Search = () => {
   const dispatch = useDispatch();
 
   const [state, setState] = useState({
@@ -26,7 +26,7 @@ const Search = (props) => {
   let history = useHistory();
 
   const handleChange = (e) => {
-    history.push(`/${e.target.name}`)
+    history.push(`/${e.target.name}`);
     setState({
       [e.target.name]: e.target.checked,
     });
@@ -51,21 +51,9 @@ const Search = (props) => {
   useEffect(() => {
     const { pathname } = history.location;
     setState({
-      [pathname.substring(1)]: true
+      [pathname.substring(1)]: true,
     });
-
   }, []);
-
-  // useEffect(() => {
-
-  //       console.log(tickets.loadingFinish)
-  //         console.log('sddsfdsfsd')
-
-  //     // console.log(tickets.loadingFinish, 1234)
-
-  // }, [tickets.loadingFinish]);
-
-  // console.log(state, 888)
 
   return (
     <Router>
@@ -123,10 +111,4 @@ const Search = (props) => {
   );
 };
 
-const mapStateToProps = (checkbox) => {
-  return {
-    checkbox: checkbox,
-  };
-};
-
-export default connect(mapStateToProps)(Search);
+export default Search;

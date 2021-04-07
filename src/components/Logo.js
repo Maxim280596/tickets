@@ -4,14 +4,14 @@ import { Row, Container } from 'react-bootstrap';
 import Logotype from '../logo.png';
 import { StyledLogo, StyledLogoCol } from '../styled/StyledLogo';
 
-export const Logo = () => {
-  return (
-    <Container>
-      <Row>
-        <StyledLogoCol>
-          <StyledLogo src={Logotype} alt="Logo" />
-        </StyledLogoCol>
-      </Row>
-    </Container>
-  );
-};
+const Logo = () => (
+  <Container>
+    <Row>
+      <StyledLogoCol>
+        <StyledLogo src={Logotype} alt="Logo" />
+      </StyledLogoCol>
+    </Row>
+  </Container>
+);
+
+export default Logo;

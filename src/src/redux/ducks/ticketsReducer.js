@@ -1,35 +1,42 @@
+import { put, takeEvery, call, select } from 'redux-saga/effects';
+import { getId, getStop } from './index';
+
 const initialState = {
   tickets: [],
   loadingFinish: false,
   renderTickets: [],
 };
 
-export const SET_TICKETS = 'SET_TICKETS';
-export const FETCH_TICKETS = 'FETCH_TICKETS';
-export const UPDATE_TICKETS = 'UPDATE_TICKETS';
-export const LOADING_FINISH = 'LOADING_FINISH';
-export const RENDER_TICKETS = 'RENDER_TICKETS';
+export const SET_TICKETS = 'tickets/SET_TICKETS';
+export const FETCH_TICKETS = 'server/request/FETCH_TICKETS';
+export const UPDATE_TICKETS = 'server/uptade/UPDATE_TICKETS';
+export const LOADING_FINISH = 'server/loadingfinish/LOADING_FINISH';
+export const RENDER_TICKETS = 'tickets/render/RENDER_TICKETS';
 
-export const SMALL_PRICE = 'SMALL_PRICE';
-export const FAST_TICKET = 'FAST_TICKET';
-export const ONE_STOP = 'ONE_STOP';
-export const ONE_STOP_FALSE = 'ONE_STOP_FALSE';
-export const TWO_STOP = 'TWO_STOP';
-export const THREE_STOP = 'THREE_STOP';
-export const NO_STOP = 'NO_STOP';
-export const ALL_STOP = 'ALL_STOP';
+export const SMALL_PRICE = 'sort/smallSMALL_PRICE';
+export const FAST_TICKET = 'sort/fast/FAST_TICKET';
+
+export const ONE_STOP = 'filter/one/ONE_STOP';
+export const TWO_STOP = 'filter/two/TWO_STOP';
+export const THREE_STOP = 'filter/three/THREE_STOP';
+export const NO_STOP = 'filter/no/NO_STOP';
+export const ALL_STOP = 'filter/all/ALL_STOP';
 
 export default function ticketsReducer(state = initialState, action) {
   switch (action.type) {
     case SET_TICKETS:
       return { ...state, tickets: [...state.tickets, action.payload] };
+
     case RENDER_TICKETS:
       let renderTickets = state.tickets[0].tickets;
       return { ...state, renderTickets: [...renderTickets] };
+
     case UPDATE_TICKETS:
       return { ...state, tickets: [...state.tickets, action.payload] };
+
     case LOADING_FINISH:
       return { ...state, loadingFinish: action.payload };
+
     case SMALL_PRICE:
       let data = state;
       const filterTickets = state.renderTickets.sort(
@@ -60,7 +67,6 @@ export default function ticketsReducer(state = initialState, action) {
         (a) =>
           a.segments[0].stops.length === 1 && a.segments[1].stops.length === 1
       );
-
       oneStop.renderTickets = stopsArr;
       console.log(state, 99999);
       return { ...state, oneStop };
@@ -71,25 +77,24 @@ export default function ticketsReducer(state = initialState, action) {
         (a) =>
           a.segments[0].stops.length === 0 && a.segments[1].stops.length === 0
       );
-
       noStop.renderTickets = noStopsArr;
       return { ...state, noStop };
+
     case TWO_STOP:
       let twoStop = state;
       const twoStopsArr = state.tickets[0].tickets.filter(
         (a) =>
           a.segments[0].stops.length === 2 && a.segments[1].stops.length === 2
       );
-
       twoStop.renderTickets = twoStopsArr;
       return { ...state, twoStop };
+
     case THREE_STOP:
       let threeStop = state;
       const threeStopsArr = state.tickets[0].tickets.filter(
         (a) =>
           a.segments[0].stops.length === 3 && a.segments[1].stops.length === 3
       );
-
       threeStop.renderTickets = threeStopsArr;
       return { ...state, threeStop };
 
@@ -107,14 +112,51 @@ export const filteringPrice = (payload) => ({ type: SMALL_PRICE, payload });
 export const filteringFast = (payload) => ({ type: FAST_TICKET, payload });
 
 export const filteringOneStop = (payload) => ({ type: ONE_STOP, payload });
-export const filteringOneStopFalse = (payload) => ({
-  type: ONE_STOP_FALSE,
-  payload,
-});
-
 export const filteringTwoStop = (payload) => ({ type: TWO_STOP, payload });
 export const filteringThreeStop = (payload) => ({ type: THREE_STOP, payload });
 export const filteringNoStop = (payload) => ({ type: NO_STOP, payload });
 export const filteringAllStop = (payload) => ({ type: ALL_STOP, payload });
 
 export const fetchTickets = () => ({ type: FETCH_TICKETS });
+
+
+async function fetchTicketsFromApi(id) {
+  let response = await fetch(
+    `https://front-test.beta.aviasales.ru/tickets?searchId=${id}`
+  );
+  try {
+    if (response.status === 500) {
+      return (response = fetch(
+        `https://front-test.beta.aviasales.ru/tickets?searchId=${id}`
+      ));
+    } else if (response.status === 404) {
+      console.log('Данные загружены');
+    }
+    return await response.json();
+  } catch (erorr) {
+    if (erorr === SyntaxError) {
+      response = await fetch(
+        `https://front-test.beta.aviasales.ru/tickets?searchId=${id}`
+      );
+      return await response.json();
+    } else throw erorr;
+  }
+}
+
+function* fetchTicketsWorker() {
+  let id = yield select(getId);
+  let stop = yield select(getStop);
+
+  let data = yield call(fetchTicketsFromApi, id.searchId);
+  yield put(setTickets(data));
+
+  while (!stop) {
+    const data = yield call(fetchTicketsFromApi, id.searchId);
+    yield put(updateTickets(data));
+    yield put(loadingFinish(data.stop));
+  }
+}
+
+export function* ticketsWatcher() {
+  yield takeEvery(FETCH_TICKETS, fetchTicketsWorker);
+}
