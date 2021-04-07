@@ -5,7 +5,7 @@ export const initialState = {
 export const SET_ID = 'SET_ID';
 export const FETCH_ID = 'FETCH_ID';
 
-export default function idReducer(state = initialState, action) {
+export default function idReducer(state = { initialState }, action) {
   switch (action.type) {
     case SET_ID:
       return { ...state, searchId: action.payload };

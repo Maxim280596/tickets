@@ -22,5 +22,8 @@ export const store = createStore(
 
 sagaMiddleware.run(rootWatcher);
 
+
+
 export const getId = (state) => state.idReducer.searchId;
 export const getStop = (state) => state.ticketsReducer.tickets.stop;
+

@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, useHistory } from 'react-router-dom';
 
+import {
+  filteringOneStop,
+  filteringAllStop,
+  filteringNoStop,
+  filteringThreeStop,
+  filteringTwoStop,
+} from '../store/ticketsReducer';
 import { StyledForm } from '../styled/StyledSearch';
 import { SearchInput } from './SearchInput';
 
- const Search = ({tickets}) => {
+const Search = (props) => {
+  const dispatch = useDispatch();
+
   const [state, setState] = useState({
     all: false,
     no: false,
@@ -16,50 +25,47 @@ import { SearchInput } from './SearchInput';
 
   let history = useHistory();
 
-
-
   const handleChange = (e) => {
-    // history.push(`/${e.target.name}`);
+    history.push(`/${e.target.name}`)
     setState({
-      ...state, 
-      [e.target.name]: e.target.checked 
-      
+      [e.target.name]: e.target.checked,
     });
-      if (e.target.name === 'no') {
-        let price = tickets.tickets[0].tickets;
-        price.sort(function(a,b){
-          return b.price - a.price
-        })
-         console.log(tickets.tickets[0].tickets, 'filter')
-         console.log(price, 'filtered')
+
+    if (e.target.name === 'one') {
+      dispatch(filteringOneStop());
     }
-    
-  
-   
-    
+    if (e.target.name === 'two') {
+      dispatch(filteringTwoStop());
+    }
+    if (e.target.name === 'three') {
+      dispatch(filteringThreeStop());
+    }
+    if (e.target.name === 'all') {
+      dispatch(filteringAllStop());
+    }
+    if (e.target.name === 'no') {
+      dispatch(filteringNoStop());
+    }
   };
 
-  // useEffect(() => {
-  //   const { pathname } = history.location;
-  //   setState({
-  //     [pathname.substring(1)]: true
-  //   });
+  useEffect(() => {
+    const { pathname } = history.location;
+    setState({
+      [pathname.substring(1)]: true
+    });
 
-
-  // }, []);
+  }, []);
 
   // useEffect(() => {
 
   //       console.log(tickets.loadingFinish)
   //         console.log('sddsfdsfsd')
-        
-  //     // console.log(tickets.loadingFinish, 1234)
-    
 
+  //     // console.log(tickets.loadingFinish, 1234)
 
   // }, [tickets.loadingFinish]);
 
-
+  // console.log(state, 888)
 
   return (
     <Router>
@@ -117,10 +123,10 @@ import { SearchInput } from './SearchInput';
   );
 };
 
+const mapStateToProps = (checkbox) => {
+  return {
+    checkbox: checkbox,
+  };
+};
 
-const mapStateToProps = (state) => {
-  return{
-  tickets: state.ticketsReducer
-}};
-
-export default connect(mapStateToProps)(Search)
+export default connect(mapStateToProps)(Search);
