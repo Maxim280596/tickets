@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { BrowserRouter as Router, useHistory } from 'react-router-dom';
 
 import { StyledForm } from '../styled/StyledSearch';
 import { SearchInput } from './SearchInput';
 
-export const Search = () => {
+ const Search = ({tickets}) => {
   const [state, setState] = useState({
     all: false,
     no: false,
@@ -15,37 +16,50 @@ export const Search = () => {
 
   let history = useHistory();
 
+
+
   const handleChange = (e) => {
-    history.push(`/${e.target.name}`);
+    // history.push(`/${e.target.name}`);
     setState({
       ...state, 
       [e.target.name]: e.target.checked 
+      
     });
-    console.log(state);
+      if (e.target.name === 'no') {
+        let price = tickets.tickets[0].tickets;
+        price.sort(function(a,b){
+          return b.price - a.price
+        })
+         console.log(tickets.tickets[0].tickets, 'filter')
+         console.log(price, 'filtered')
+    }
+    
+  
+   
+    
   };
 
-  useEffect(() => {
-    const { pathname } = history.location;
-    switch (pathname) {
-      case '/all':
-        setState({ all: true });
-        break;
-      case '/no':
-        setState({ no: true });
-        break;
-      case '/one':
-        setState({ one: true });
-        break;
-      case '/two':
-        setState({ two: true });
-        break;
-      case '/three':
-        setState({ three: true });
-        break;
-      default:
-        break;
-    }
-  }, []);
+  // useEffect(() => {
+  //   const { pathname } = history.location;
+  //   setState({
+  //     [pathname.substring(1)]: true
+  //   });
+
+
+  // }, []);
+
+  // useEffect(() => {
+
+  //       console.log(tickets.loadingFinish)
+  //         console.log('sddsfdsfsd')
+        
+  //     // console.log(tickets.loadingFinish, 1234)
+    
+
+
+  // }, [tickets.loadingFinish]);
+
+
 
   return (
     <Router>
@@ -102,3 +116,11 @@ export const Search = () => {
     </Router>
   );
 };
+
+
+const mapStateToProps = (state) => {
+  return{
+  tickets: state.ticketsReducer
+}};
+
+export default connect(mapStateToProps)(Search)

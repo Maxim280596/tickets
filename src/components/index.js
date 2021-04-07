@@ -1,5 +1,5 @@
-import { Search } from './Search';
-import { Filter } from './Filter';
+import  Search  from './Search';
+import  Filter  from './Filter';
 import TicketsList from './TicketsList';
 import { Logo } from './Logo';
 

@@ -2,6 +2,7 @@ import { put, takeEvery, call, select } from 'redux-saga/effects';
 
 import {
   FETCH_TICKETS,
+  loadingFinish,
   setTickets,
   updateTickets,
 } from '../store/ticketsReducer';
@@ -17,6 +18,7 @@ async function fetchTicketsFromApi(id) {
         `https://front-test.beta.aviasales.ru/tickets?searchId=${id}`
       ));
     } else if (response.status === 404) {
+        console.log("Данные загружены")
     }
     return await response.json();
   } catch (e) {
@@ -39,7 +41,10 @@ function* fetchTicketsWorker() {
   while (!stop) {
     const data = yield call(fetchTicketsFromApi, id.searchId);
     yield put(updateTickets(data));
+    yield put(loadingFinish(data.stop));
   }
+  
+  
 }
 
 export function* ticketsWatcher() {
