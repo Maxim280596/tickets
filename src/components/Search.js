@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, useHistory } from 'react-router-dom';
+import {Formik} from 'formik'
 
 import {
   filteringOneStop,
@@ -57,7 +58,13 @@ const Search = () => {
 
   return (
     <Router>
-      <StyledForm>
+      <Formik
+      InitialValues={{
+        checked: [],
+      }}
+      
+      >
+     {({ values }) => ( <StyledForm>
         <div>
           <h5>КОЛИЧЕСТВО ПЕРЕСАДОК</h5>
           <SearchInput
@@ -68,6 +75,7 @@ const Search = () => {
             label="Все"
             type="checkbox"
             checked={state.all}
+            value='all'
           />
           <SearchInput
             name="no"
@@ -77,6 +85,7 @@ const Search = () => {
             label="Без пересадок"
             type="checkbox"
             checked={state.no}
+            value='no'
           />
           <SearchInput
             name="one"
@@ -86,6 +95,7 @@ const Search = () => {
             label="1 пересадка"
             type="checkbox"
             checked={state.one}
+            value='one'
           />
           <SearchInput
             name="two"
@@ -95,6 +105,7 @@ const Search = () => {
             label="2 пересадки"
             type="checkbox"
             checked={state.two}
+            value='two'
           />
           <SearchInput
             name="three"
@@ -104,9 +115,12 @@ const Search = () => {
             label="3 пересадки"
             type="checkbox"
             checked={state.three}
+            value='three'
           />
         </div>
       </StyledForm>
+     )}
+      </Formik>
     </Router>
   );
 };

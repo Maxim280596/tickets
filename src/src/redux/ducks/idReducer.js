@@ -1,8 +1,11 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
 
+import {fetchIdFromApi} from '../../../api'
+
 export const initialState = {
   searchId: {},
 };
+
 
 export const SET_ID = 'searchId/SET_ID';
 export const FETCH_ID = 'fetchId/FETCH_ID';
@@ -21,8 +24,7 @@ export const setId = (payload) => ({ type: SET_ID, payload });
 export const fetchId = () => ({ type: FETCH_ID });
 
 
-const fetchIdFromApi = () =>
-  fetch('https://front-test.beta.aviasales.ru/search');
+
 
 function* fetchIdWorker() {
   const data = yield call(fetchIdFromApi);

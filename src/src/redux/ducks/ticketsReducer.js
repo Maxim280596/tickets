@@ -1,5 +1,6 @@
 import { put, takeEvery, call, select } from 'redux-saga/effects';
 import { getId, getStop } from './index';
+import { fetchTicketsFromApi } from '../../../api';
 
 const initialState = {
   tickets: [],
@@ -118,30 +119,6 @@ export const filteringNoStop = (payload) => ({ type: NO_STOP, payload });
 export const filteringAllStop = (payload) => ({ type: ALL_STOP, payload });
 
 export const fetchTickets = () => ({ type: FETCH_TICKETS });
-
-
-async function fetchTicketsFromApi(id) {
-  let response = await fetch(
-    `https://front-test.beta.aviasales.ru/tickets?searchId=${id}`
-  );
-  try {
-    if (response.status === 500) {
-      return (response = fetch(
-        `https://front-test.beta.aviasales.ru/tickets?searchId=${id}`
-      ));
-    } else if (response.status === 404) {
-      console.log('Данные загружены');
-    }
-    return await response.json();
-  } catch (erorr) {
-    if (erorr === SyntaxError) {
-      response = await fetch(
-        `https://front-test.beta.aviasales.ru/tickets?searchId=${id}`
-      );
-      return await response.json();
-    } else throw erorr;
-  }
-}
 
 function* fetchTicketsWorker() {
   let id = yield select(getId);
