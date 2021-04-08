@@ -1,6 +1,6 @@
-import Search from './Search';
+import Search from './Search.tsx';
 import Filter from './Filter';
 import TicketsList from './TicketsList';
-import Logo from './Logo';
+import Logo from './Logo.tsx';
 
 export { Logo, TicketsList, Filter, Search };

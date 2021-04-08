@@ -1,5 +1,5 @@
 import { put, takeEvery, call, select } from 'redux-saga/effects';
-import { getId, getStop } from './index';
+import { getId} from './index';
 import { fetchTicketsFromApi } from '../../../api';
 
 const initialState = {
@@ -26,10 +26,12 @@ export const ALL_STOP = 'filter/all/ALL_STOP';
 export default function ticketsReducer(state = initialState, action) {
   switch (action.type) {
     case SET_TICKETS:
+      console.log(state,999)
       return { ...state, tickets: [...state.tickets, action.payload] };
 
     case RENDER_TICKETS:
       let renderTickets = state.tickets[0].tickets;
+      console.log(state.tickets,22222)
       return { ...state, renderTickets: [...renderTickets] };
 
     case UPDATE_TICKETS:
@@ -122,16 +124,23 @@ export const fetchTickets = () => ({ type: FETCH_TICKETS });
 
 function* fetchTicketsWorker() {
   let id = yield select(getId);
-  let stop = yield select(getStop);
+  // let stop = yield select(getStop);
 
   let data = yield call(fetchTicketsFromApi, id.searchId);
-  yield put(setTickets(data));
-
-  while (!stop) {
-    const data = yield call(fetchTicketsFromApi, id.searchId);
-    yield put(updateTickets(data));
-    yield put(loadingFinish(data.stop));
-  }
+  // yield put(setTickets(data));
+  // console.log(data)
+  
+    // const data = yield call(fetchTicketsFromApi, id.searchId);
+    // yield put(updateTickets(data));
+    if(data.tickets) {
+      yield put(setTickets(data));
+      yield put(loadingFinish(true));
+    } else {
+      let data2 = yield call(fetchTicketsFromApi, id.searchId);
+      yield put(setTickets(data2));
+    }
+    // yield put(loadingFinish(true));
+  
 }
 
 export function* ticketsWatcher() {

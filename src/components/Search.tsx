@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, useHistory } from 'react-router-dom';
 import {Formik} from 'formik'
@@ -13,10 +13,22 @@ import {
 import { StyledForm } from '../styled/StyledSearch';
 import { SearchInput } from './SearchInput';
 
-const Search = () => {
+interface ICheck
+ {
+  all: Boolean,
+    no: Boolean,
+    one: Boolean,
+    two: Boolean,
+    three: Boolean,
+    
+}
+
+
+
+const Search:FunctionComponent = () => {
   const dispatch = useDispatch();
 
-  const [state, setState] = useState({
+  const [state, setState] = useState<ICheck>({
     all: false,
     no: false,
     one: false,
@@ -26,10 +38,10 @@ const Search = () => {
 
   let history = useHistory();
 
-  const handleChange = (e) => {
+  const handleChange = (e:any|Boolean): void => {
     history.push(`/${e.target.name}`);
     setState({
-      [e.target.name]: e.target.checked,
+      ...state, [e.target.name]: e.target.checked
     });
 
     if (e.target.name === 'one') {
@@ -48,23 +60,18 @@ const Search = () => {
       dispatch(filteringNoStop());
     }
   };
-
+  
   useEffect(() => {
     const { pathname } = history.location;
     setState({
+      ...state,
       [pathname.substring(1)]: true,
     });
   }, []);
 
   return (
     <Router>
-      <Formik
-      InitialValues={{
-        checked: [],
-      }}
-      
-      >
-     {({ values }) => ( <StyledForm>
+     <StyledForm>
         <div>
           <h5>КОЛИЧЕСТВО ПЕРЕСАДОК</h5>
           <SearchInput
@@ -119,8 +126,6 @@ const Search = () => {
           />
         </div>
       </StyledForm>
-     )}
-      </Formik>
     </Router>
   );
 };
