@@ -5,7 +5,7 @@ export const fetchIdFromApi = () => fetch(SEARCH_ID_URL);
 export const SEARCH_TICKETS =
   'https://front-test.beta.aviasales.ru/tickets?searchId=';
 
-export async function fetchTicketsFromApi(id) {
+export async function fetchTicketsFromApi(id:any) {
   let response = await fetch(SEARCH_TICKETS + id);
   try {
     if (response.status === 500) {

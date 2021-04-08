@@ -5,8 +5,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Search, Filter, TicketsList, Logo } from './components/index';
 import { GlobalStyle } from './StyledApp';
 
-const App = () => (
-  <Router>
+const App: React.FC<{}> = () => {
+  return (
+    <Router>
     <div className="App">
       <GlobalStyle />
       <Container>
@@ -25,6 +26,8 @@ const App = () => (
       </Container>
     </div>
   </Router>
-);
+  )
+  
+  };
 
 export default App;

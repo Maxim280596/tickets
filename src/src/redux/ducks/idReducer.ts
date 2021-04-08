@@ -2,6 +2,8 @@ import { put, takeEvery, call } from 'redux-saga/effects';
 
 import {fetchIdFromApi} from '../../../api'
 
+
+
 export const initialState = {
   searchId: {},
 };

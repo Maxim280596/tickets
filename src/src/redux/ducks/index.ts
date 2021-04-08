@@ -25,5 +25,5 @@ function* rootWatcher() {
 
 sagaMiddleware.run(rootWatcher);
 
-export const getId = (state) => state.idReducer.searchId;
-export const getStop = (state) => state.ticketsReducer.tickets.stop;
+export const getId = (state: any) => state.idReducer.searchId;
+export const getStop = (state: any) => state.ticketsReducer.tickets.stop;
