@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import {useParams, useHistory} from 'react-router-dom'
 
 import { Ticket } from './Ticket';
 import { fetchId } from '../src/redux/ducks/idReducer';
@@ -9,7 +10,13 @@ import { fetchTickets, renderTickets } from '../src/redux/ducks/ticketsReducer';
 const TicketsList = ({ state }) => {
   const dispatch = useDispatch();
   const searchId = useSelector((state) => state.idReducer.searchId);
+  
   const loading = useSelector((state) => state.ticketsReducer.loadingFinish);
+  const history = useHistory()
+  const params = useParams();
+  const { filter } = params;
+
+console.log(params, 9999)
 
   useEffect(() => {
     dispatch(fetchId());

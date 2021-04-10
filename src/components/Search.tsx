@@ -1,7 +1,7 @@
 import React, { useState, useEffect, FunctionComponent } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { BrowserRouter as Router, useHistory } from 'react-router-dom';
-import {Formik} from 'formik'
+import { Form, Formik } from 'formik';
 
 import {
   filteringOneStop,
@@ -13,54 +13,74 @@ import {
 import { StyledForm } from '../styled/StyledSearch';
 import { SearchInput } from './SearchInput';
 
-interface ICheck
- {
-  all: Boolean,
-    no: Boolean,
-    one: Boolean,
-    two: Boolean,
-    three: Boolean,
+// interface ICheck
+//  {
+//   all: Boolean,
+//     no: Boolean,
+//     one: Boolean,
+//     two: Boolean,
+//     three: Boolean,
     
-}
+// }
 
+const checkboxOptions = [
+  { id: 1, path: '/', value: 'Все', checked: true },
+  { id: 2, path: '/no', value: 'Без пересадки', checked: false },
+  { id: 3, path: '/one', value: '1 пересадка', checked: false },
+  { id: 4, path: '/two', value: '2 пересадки', checked: false },
+  { id: 5, path: '/three', value: '3 пересадки', checked: false }
+]
 
 
 const Search:FunctionComponent = () => {
   const dispatch = useDispatch();
 
-  const [state, setState] = useState<ICheck>({
-    all: false,
-    no: false,
-    one: false,
-    two: false,
-    three: false,
-  });
-
+  const [state, setState] = useState(checkboxOptions)
+  
+  const params = useParams();
+  const { filter } = params;
   let history = useHistory();
 
-  const handleChange = (e:any|Boolean): void => {
-    history.push(`/${e.target.name}`);
-    setState({
-      ...state, [e.target.name]: e.target.checked
-    });
+  // const handleChange = (e:any|Boolean): void => {
+  //   history.push(`/${e.target.name}`);
+  //   setState({
+  //     ...state, [e.target.name]: e.target.checked
+  //   });
 
-    if (e.target.name === 'one') {
-      dispatch(filteringOneStop());
-    }
-    if (e.target.name === 'two') {
-      dispatch(filteringTwoStop());
-    }
-    if (e.target.name === 'three') {
-      dispatch(filteringThreeStop());
-    }
-    if (e.target.name === 'all') {
-      dispatch(filteringAllStop());
-    }
-    if (e.target.name === 'no') {
-      dispatch(filteringNoStop());
-    }
-  };
+  //   if (e.target.name === 'one') {
+  //     dispatch(filteringOneStop());
+  //   }
+  //   if (e.target.name === 'two') {
+  //     dispatch(filteringTwoStop());
+  //   }
+  //   if (e.target.name === 'three') {
+  //     dispatch(filteringThreeStop());
+  //   }
+  //   if (e.target.name === 'all') {
+  //     dispatch(filteringAllStop());
+  //   }
+  //   if (e.target.name === 'no') {
+  //     dispatch(filteringNoStop());
+  //   }
+  // };
   
+  const [options, setOptions] = useState(checkboxOptions);
+    
+
+    const toggleCheckbox = (option: any) => {
+        const updatedOptions = options.map(item => {
+            if (item.id === option.id) {
+                item.checked = !item.checked;
+                history.push(item.path);
+            }
+            if (item.checked && option.id !== item.id) {
+                item.checked = false;
+            }
+            return item;
+        });
+        setOptions(updatedOptions);
+    }
+
   useEffect(() => {
     const { pathname } = history.location;
     setState({
