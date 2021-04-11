@@ -9,10 +9,10 @@ import {
 } from '../src/redux/ducks/ticketsReducer';
 
 
-const TicketsList = ({ state }) => {
+const TicketsList = ({ state }:any) => {
   const dispatch = useDispatch();
 
-  const { isLoaded, data, error } = useSelector((state) => state);
+  const { isLoaded, data, error }:any = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(asyncSendRequestAction());
@@ -30,7 +30,7 @@ const TicketsList = ({ state }) => {
   return (
     <div>
       {state.data ? (
-        state.renderTickets.map((item) => {
+        state.renderTickets.map((item:any) => {
           return (
             <Ticket
               key={uuidv4()}
@@ -57,7 +57,7 @@ const TicketsList = ({ state }) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state:any) => {
   return {
     state: state.mainReducer,
   };

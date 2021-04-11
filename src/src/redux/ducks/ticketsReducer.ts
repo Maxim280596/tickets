@@ -1,4 +1,4 @@
-import { put, takeEvery, call, all } from 'redux-saga/effects';
+import { put, takeEvery, call, all } from 'typed-redux-saga';
 
 import { SEARCH_ID_URL, SEARCH_TICKETS } from '../../../api';
 
@@ -9,6 +9,10 @@ const initialState = {
   error: ' ',
 };
 
+
+
+
+
 const FAIL_REQUEST = 'tickets/tickets/FAIL_REQUEST';
 const SEND_REQUEST = 'tickets/tickets/SEND_REQUEST';
 const SUCCESSFUL_REQUEST = 'tickets/tickets/SUCCESSFUL_REQUEST';
@@ -17,7 +21,7 @@ export const FILTER_TICKETS = 'filter/one/FILTER_TICKETS';
 export const SMALL_PRICE = 'sort/smallSMALL_PRICE';
 export const FAST_TICKET = 'sort/fast/FAST_TICKET';
 
-export default function mainReducer(state = initialState, action) {
+export default function mainReducer(state = initialState, action:any) {
   switch (action.type) {
     case SUCCESSFUL_REQUEST:
       return { ...state, data: action.data, isLoaded: true };
@@ -30,11 +34,11 @@ export default function mainReducer(state = initialState, action) {
     case FILTER_TICKETS:
       console.log(action.payload);
       let filteredArr = state.data;
-      let arr = [];
-      action.payload.map((item) => {
+      let arr:any[] = [];
+      action.payload.map((item:any) => {
         if (item.checked) {
           arr = filteredArr.filter(
-            (a) =>
+            (a:any) =>
               a.segments[0].stops.length === item.length &&
               a.segments[1].stops.length === item.length
           );
@@ -46,13 +50,13 @@ export default function mainReducer(state = initialState, action) {
 
         return arr;
       });
-      filteredArr = arr;
+      
       return { ...state, renderTickets: [...arr] };
 
     case SMALL_PRICE:
       let data = state;
       const filterTickets = state.renderTickets.sort(
-        (a, b) => a.price - b.price
+        (a:any, b:any) => a.price - b.price
       );
       data.renderTickets = filterTickets;
       console.log(data);
@@ -61,7 +65,7 @@ export default function mainReducer(state = initialState, action) {
     case FAST_TICKET:
       let dataFast = state;
       const filterFastTickets = state.renderTickets.sort(
-        (a, b) => a.segments[0].duration - b.segments[0].duration
+        (a:any, b:any) => a.segments[0].duration - b.segments[0].duration
       );
       dataFast.renderTickets = filterFastTickets;
       console.log(dataFast);
@@ -72,21 +76,25 @@ export default function mainReducer(state = initialState, action) {
   }
 }
 
-export const filterTickets = (payload) => ({ type: FILTER_TICKETS, payload });
-export const renderTickets = (payload) => ({ type: RENDER_TICKETS, payload });
-export const filteringPrice = (payload) => ({ type: SMALL_PRICE, payload });
-export const filteringFast = (payload) => ({ type: FAST_TICKET, payload });
+export const filterTickets = (payload:any) => ({ type: FILTER_TICKETS, payload});
+// const renderTickets: (payload: any) => {
+//   type: string;
+//   payload: any;
+// }
+export const renderTickets = () => ({ type: RENDER_TICKETS });
+export const filteringPrice = (payload:any) => ({ type: SMALL_PRICE, payload });
+export const filteringFast = (payload:any) => ({ type: FAST_TICKET, payload });
 
-export function failRequestAction(error) {
+export function failRequestAction(error:any) {
   return { type: FAIL_REQUEST, error };
 }
 
-export function successRequestAction(data) {
+export function successRequestAction(data:any[]) {
   return { type: SUCCESSFUL_REQUEST, data };
 }
 
-export function asyncSendRequestAction(pathname) {
-  return { type: SEND_REQUEST, pathname };
+export function asyncSendRequestAction() {
+  return { type: SEND_REQUEST, };
 }
 
 export function* sendRequest() {
@@ -97,12 +105,19 @@ export function* rootSaga() {
   yield all([sendRequest()]);
 }
 
-export function* fetchTicketsAsync() {
+type id = any
+      
+
+type data = any
+export function* fetchTicketsAsync (): Generator<
+id,
+data
+>  {
   try {
-    const id = yield call(() =>
+    const id: any = yield call(() => 
       fetch(SEARCH_ID_URL).then((data) => data.json())
     );
-    const data = yield call(() =>
+    const data: any = yield call(() =>
       fetch(SEARCH_TICKETS + id.searchId)
         .then((data) => data.json())
         .then((response) => response.tickets)
