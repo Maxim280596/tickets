@@ -23,19 +23,21 @@ export const Ticket = ({
   departureDate,
   duration,
   departureDateBack,
-  durationBack
+  durationBack,
 }) => {
-
-
   const getTimeToString = (date, duration) => {
     let dateStart = new Date(date);
     let dateEnd = new Date(dateStart.getTime() + duration * 60 * 1000);
-    return dateStart.toTimeString().slice(0, 5) + " - " + dateEnd.toTimeString().slice(0, 5);
-};
+    return (
+      dateStart.toTimeString().slice(0, 5) +
+      ' - ' +
+      dateEnd.toTimeString().slice(0, 5)
+    );
+  };
 
-const getDurationToString = (duration) => {
-  return Math.floor(duration / 60).toString() + "ч " + (duration % 60) + "м";
-};
+  const getDurationToString = (duration) => {
+    return Math.floor(duration / 60).toString() + 'ч ' + (duration % 60) + 'м';
+  };
 
   return (
     <StyledRow>
@@ -61,13 +63,17 @@ const getDurationToString = (duration) => {
             <StyledTitle>
               {origin}-{destination}
             </StyledTitle>
-            <StyledValue>{getTimeToString(departureDate,duration)}</StyledValue>
+            <StyledValue>
+              {getTimeToString(departureDate, duration)}
+            </StyledValue>
           </StyledDiv>
           <StyledDiv>
             <StyledTitle>
               {originBack}-{destinationBack}
             </StyledTitle>
-            <StyledValue>{getTimeToString(departureDateBack,durationBack)}</StyledValue>
+            <StyledValue>
+              {getTimeToString(departureDateBack, durationBack)}
+            </StyledValue>
           </StyledDiv>
         </Col>
         <Col lg={4} sm={4} xs={4}>

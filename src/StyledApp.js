@@ -11,6 +11,10 @@ export const GlobalStyle = createGlobalStyle`
   label {
     font-size:16px;
     padding-left:5px;
+    position:relative;
+    top:-4px;
+    width:100%;
+   
   }
 
   input {

@@ -1,42 +1,53 @@
-import { put, takeEvery, call, select } from 'redux-saga/effects';
-import { getId, getStop } from './index';
-import { fetchTicketsFromApi } from '../../../api';
+import { put, takeEvery, call, all } from 'redux-saga/effects';
+
+import { SEARCH_ID_URL, SEARCH_TICKETS } from '../../../api';
 
 const initialState = {
-  tickets: [],
-  loadingFinish: false,
+  data: [],
+  isLoaded: false,
   renderTickets: [],
+  error: ' ',
 };
 
-export const SET_TICKETS = 'tickets/SET_TICKETS';
-export const FETCH_TICKETS = 'server/request/FETCH_TICKETS';
-export const UPDATE_TICKETS = 'server/uptade/UPDATE_TICKETS';
-export const LOADING_FINISH = 'server/loadingfinish/LOADING_FINISH';
+const FAIL_REQUEST = 'tickets/tickets/FAIL_REQUEST';
+const SEND_REQUEST = 'tickets/tickets/SEND_REQUEST';
+const SUCCESSFUL_REQUEST = 'tickets/tickets/SUCCESSFUL_REQUEST';
 export const RENDER_TICKETS = 'tickets/render/RENDER_TICKETS';
-
+export const FILTER_TICKETS = 'filter/one/FILTER_TICKETS';
 export const SMALL_PRICE = 'sort/smallSMALL_PRICE';
 export const FAST_TICKET = 'sort/fast/FAST_TICKET';
 
-export const ONE_STOP = 'filter/one/ONE_STOP';
-export const TWO_STOP = 'filter/two/TWO_STOP';
-export const THREE_STOP = 'filter/three/THREE_STOP';
-export const NO_STOP = 'filter/no/NO_STOP';
-export const ALL_STOP = 'filter/all/ALL_STOP';
-
-export default function ticketsReducer(state = initialState, action) {
+export default function mainReducer(state = initialState, action) {
   switch (action.type) {
-    case SET_TICKETS:
-      return { ...state, tickets: [...state.tickets, action.payload] };
-
+    case SUCCESSFUL_REQUEST:
+      return { ...state, data: action.data, isLoaded: true };
+    case FAIL_REQUEST:
+      return { ...state, error: 'NO DATA' };
     case RENDER_TICKETS:
-      let renderTickets = state.tickets[0].tickets;
-      return { ...state, renderTickets: [...renderTickets] };
+      let renderTicket = state.data;
+      console.log(state, 9999);
+      return { ...state, renderTickets: [...renderTicket] };
+    case FILTER_TICKETS:
+      console.log(action.payload);
+      let filteredArr = state.data;
+      let arr = [];
+      action.payload.map((item) => {
+        if (item.checked) {
+          arr = filteredArr.filter(
+            (a) =>
+              a.segments[0].stops.length === item.length &&
+              a.segments[1].stops.length === item.length
+          );
+          console.log(arr);
+        }
+        if (item.checked && item.length === 10) {
+          arr = state.data;
+        }
 
-    case UPDATE_TICKETS:
-      return { ...state, tickets: [...state.tickets, action.payload] };
-
-    case LOADING_FINISH:
-      return { ...state, loadingFinish: action.payload };
+        return arr;
+      });
+      filteredArr = arr;
+      return { ...state, renderTickets: [...arr] };
 
     case SMALL_PRICE:
       let data = state;
@@ -56,84 +67,53 @@ export default function ticketsReducer(state = initialState, action) {
       console.log(dataFast);
       return { ...state, ...dataFast };
 
-    case ALL_STOP:
-      let allStop = state;
-      const allStopsArr = state.tickets[0].tickets;
-      allStop.renderTickets = allStopsArr;
-      return { ...state, ...allStop };
-
-    case ONE_STOP:
-      let oneStop = state;
-      const stopsArr = state.tickets[0].tickets.filter(
-        (a) =>
-          a.segments[0].stops.length === 1 && a.segments[1].stops.length === 1
-      );
-      oneStop.renderTickets = stopsArr;
-      console.log(state, 99999);
-      return { ...state, oneStop };
-
-    case NO_STOP:
-      let noStop = state;
-      const noStopsArr = state.tickets[0].tickets.filter(
-        (a) =>
-          a.segments[0].stops.length === 0 && a.segments[1].stops.length === 0
-      );
-      noStop.renderTickets = noStopsArr;
-      return { ...state, noStop };
-
-    case TWO_STOP:
-      let twoStop = state;
-      const twoStopsArr = state.tickets[0].tickets.filter(
-        (a) =>
-          a.segments[0].stops.length === 2 && a.segments[1].stops.length === 2
-      );
-      twoStop.renderTickets = twoStopsArr;
-      return { ...state, twoStop };
-
-    case THREE_STOP:
-      let threeStop = state;
-      const threeStopsArr = state.tickets[0].tickets.filter(
-        (a) =>
-          a.segments[0].stops.length === 3 && a.segments[1].stops.length === 3
-      );
-      threeStop.renderTickets = threeStopsArr;
-      return { ...state, threeStop };
-
     default:
       return state;
   }
 }
 
-export const setTickets = (payload) => ({ type: SET_TICKETS, payload });
+export const filterTickets = (payload) => ({ type: FILTER_TICKETS, payload });
 export const renderTickets = (payload) => ({ type: RENDER_TICKETS, payload });
-export const updateTickets = (payload) => ({ type: UPDATE_TICKETS, payload });
-export const loadingFinish = (payload) => ({ type: LOADING_FINISH, payload });
-
 export const filteringPrice = (payload) => ({ type: SMALL_PRICE, payload });
 export const filteringFast = (payload) => ({ type: FAST_TICKET, payload });
 
-export const filteringOneStop = (payload) => ({ type: ONE_STOP, payload });
-export const filteringTwoStop = (payload) => ({ type: TWO_STOP, payload });
-export const filteringThreeStop = (payload) => ({ type: THREE_STOP, payload });
-export const filteringNoStop = (payload) => ({ type: NO_STOP, payload });
-export const filteringAllStop = (payload) => ({ type: ALL_STOP, payload });
-
-export const fetchTickets = () => ({ type: FETCH_TICKETS });
-
-function* fetchTicketsWorker() {
-  let id = yield select(getId);
-  let stop = yield select(getStop);
-
-  let data = yield call(fetchTicketsFromApi, id.searchId);
-  yield put(setTickets(data));
-
-  while (!stop) {
-    const data = yield call(fetchTicketsFromApi, id.searchId);
-    yield put(updateTickets(data));
-    yield put(loadingFinish(data.stop));
-  }
+export function failRequestAction(error) {
+  return { type: FAIL_REQUEST, error };
 }
 
-export function* ticketsWatcher() {
-  yield takeEvery(FETCH_TICKETS, fetchTicketsWorker);
+export function successRequestAction(data) {
+  return { type: SUCCESSFUL_REQUEST, data };
+}
+
+export function asyncSendRequestAction(pathname) {
+  return { type: SEND_REQUEST, pathname };
+}
+
+export function* sendRequest() {
+  yield takeEvery(SEND_REQUEST, fetchTicketsAsync);
+}
+
+export function* rootSaga() {
+  yield all([sendRequest()]);
+}
+
+export function* fetchTicketsAsync() {
+  try {
+    const id = yield call(() =>
+      fetch(SEARCH_ID_URL).then((data) => data.json())
+    );
+    const data = yield call(() =>
+      fetch(SEARCH_TICKETS + id.searchId)
+        .then((data) => data.json())
+        .then((response) => response.tickets)
+    );
+
+    yield put(successRequestAction(data));
+
+    if (data) {
+      yield put(renderTickets());
+    }
+  } catch (error) {
+    yield put(failRequestAction(error));
+  }
 }

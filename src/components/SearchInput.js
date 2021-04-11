@@ -1,29 +1,26 @@
 import React from 'react';
-
+import { FieldArray } from 'formik';
 import { StyledCheckbox } from '../styled/StyledInput';
 
-export const SearchInput = ({
-  inline,
-  label,
-  type,
-  id,
-  onChange,
-  checked,
-  key,
-  name,
-}) => {
+export const SearchInput = ({ toggleCheckbox, name, options }) => {
   return (
-    <div>
-      <StyledCheckbox
-        name={name}
-        key={key}
-        onChange={onChange}
-        id={id}
-        inline={inline}
-        label={label}
-        type={type}
-        checked={checked}
-      />
-    </div>
+    <FieldArray
+      render={(array) => (
+        <div>
+          {options.map((item) => (
+            <StyledCheckbox
+              key={item.id}
+              onChange={() => toggleCheckbox(item)}
+              name={name}
+              type="checkbox"
+              value={item.value}
+              checked={item.checked}
+              label={item.value}
+              length={item.length}
+            />
+          ))}
+        </div>
+      )}
+    />
   );
 };

@@ -3,36 +3,34 @@ import { connect, useDispatch, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Ticket } from './Ticket';
-import { fetchId } from '../src/redux/ducks/idReducer';
-import { fetchTickets, renderTickets } from '../src/redux/ducks/ticketsReducer';
+import {
+  asyncSendRequestAction,
+  renderTickets,
+} from '../src/redux/ducks/ticketsReducer';
+
 
 const TicketsList = ({ state }) => {
   const dispatch = useDispatch();
-  const searchId = useSelector((state) => state.idReducer.searchId);
-  const loading = useSelector((state) => state.ticketsReducer.loadingFinish);
+
+  const { isLoaded, data, error } = useSelector((state) => state);
 
   useEffect(() => {
-    dispatch(fetchId());
-  }, []);
-
-  useEffect(() => {
-    return () => {
-      dispatch(fetchTickets());
-    };
-  }, [searchId, dispatch]);
+    dispatch(asyncSendRequestAction());
+    console.log(data);
+  }, [dispatch, data]);
 
   useEffect(() => {
     return () => {
-      dispatch(renderTickets());
+      if (isLoaded && data) {
+        dispatch(renderTickets());
+      }
     };
-  }, [loading, dispatch]);
+  }, [isLoaded, dispatch, data]);
 
-  console.log(state.loadingFinish && state?.tickets[0].tickets);
   return (
     <div>
-      {state.loadingFinish ? (
+      {state.data ? (
         state.renderTickets.map((item) => {
-          console.log();
           return (
             <Ticket
               key={uuidv4()}
@@ -53,7 +51,7 @@ const TicketsList = ({ state }) => {
           );
         })
       ) : (
-        <h1>Loading...</h1>
+        <h2>{error}</h2>
       )}
     </div>
   );
@@ -61,7 +59,7 @@ const TicketsList = ({ state }) => {
 
 const mapStateToProps = (state) => {
   return {
-    state: state.ticketsReducer,
+    state: state.mainReducer,
   };
 };
 

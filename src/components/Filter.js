@@ -1,13 +1,11 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { StyledButtonFast, StyledButtonPrice } from '../styled/StyledFilter';
 import {
-  filteringPrice,
-  filteringFast,
+  filteringFast, filteringPrice
 } from '../src/redux/ducks/ticketsReducer';
 
-const Filter = ({ tickets }) => {
+const Filter = () => {
   const dispatch = useDispatch();
 
   const filterPrice = () => {
@@ -28,7 +26,9 @@ const Filter = ({ tickets }) => {
       >
         САМЫЙ ДЕШЕВЫЙ
       </StyledButtonPrice>
-      <StyledButtonFast variant="primary" size="lg" onClick={filterFast}>
+      <StyledButtonFast variant="primary" size="lg" 
+      onClick={filterFast}
+      >
         САМЫЙ БЫСТРЫЙ
       </StyledButtonFast>
     </div>

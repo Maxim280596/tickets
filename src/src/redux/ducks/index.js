@@ -2,13 +2,11 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
 
-import idReducer, { idWatcher } from './idReducer';
-import ticketsReducer, { ticketsWatcher } from './ticketsReducer';
+import mainReducer, { rootSaga } from './ticketsReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 const rootReducer = combineReducers({
-  idReducer,
-  ticketsReducer,
+  mainReducer,
 });
 
 export const store = createStore(
@@ -20,7 +18,7 @@ export const store = createStore(
 );
 
 function* rootWatcher() {
-  yield all([idWatcher(), ticketsWatcher()]);
+  yield all([ rootSaga()]);
 }
 
 sagaMiddleware.run(rootWatcher);
