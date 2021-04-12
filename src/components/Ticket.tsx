@@ -11,19 +11,19 @@ import {
 } from '../styled/StyledTicket';
 
 export const Ticket: React.FC<{
-  price:String,
-  origin: String,
-  destination: String,
-  destinationBack: String,
-  originBack: String,
-  stops: Number,
-  stopsBack: Number,
-  stopsCity: String,
-  stopsCityBack: String,
-  departureDate: any,
-  duration: any,
-  departureDateBack: any,
-  durationBack: any
+  price: String;
+  origin: String;
+  destination: String;
+  destinationBack: String;
+  originBack: String;
+  stops: Number;
+  stopsBack: Number;
+  stopsCity: String;
+  stopsCityBack: String;
+  departureDate: any;
+  duration: any;
+  departureDateBack: any;
+  durationBack: any;
 }> = ({
   price,
   origin,
@@ -39,7 +39,7 @@ export const Ticket: React.FC<{
   departureDateBack,
   durationBack,
 }) => {
-  const getTimeToString = (date:any, duration:any) => {
+  const getTimeToString = (date: any, duration: any) => {
     let dateStart = new Date(date);
     let dateEnd = new Date(dateStart.getTime() + duration * 60 * 1000);
     return (
@@ -49,8 +49,8 @@ export const Ticket: React.FC<{
     );
   };
 
-  const getDurationToString = (duration:any) => {
-    return Math.floor(duration/ 60).toString() + 'ч ' + (duration % 60) + 'м';
+  const getDurationToString = (duration: any) => {
+    return Math.floor(duration / 60).toString() + 'ч ' + (duration % 60) + 'м';
   };
 
   return (

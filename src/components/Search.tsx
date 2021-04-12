@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter as Router, useHistory } from 'react-router-dom';
-import { Formik } from 'formik';
+import { Formik, FormikProps, FormikHelpers } from 'formik';
 
 import { filterTickets } from '../src/redux/ducks/ticketsReducer';
 import { StyledForm } from '../styled/StyledSearch';
 import { SearchInput } from './SearchInput';
 
-export const checkboxOptions = [
+const checkboxOptions = [
   { id: 1, path: '/', value: 'Все', checked: true, length: 10 },
   {
     id: 2,
@@ -33,12 +33,12 @@ export const checkboxOptions = [
   },
 ];
 
-const Search = () => {
+const Search: React.FC = (props) => {
   const history = useHistory();
   const [options, setOptions] = useState(checkboxOptions);
   const dispatch = useDispatch();
 
-  const toggleCheckbox = (option) => {
+  const toggleCheckbox = (option: any) => {
     const updatedOptions = options.map((item) => {
       if (item.id === option.id) {
         item.checked = !item.checked;
@@ -57,8 +57,8 @@ const Search = () => {
   return (
     <Router>
       <div>
-        <Formik initialValues={checkboxOptions}>
-          {(formik) => (
+        <Formik initialValues={checkboxOptions} onSubmit={() => {}}>
+          {(formik: any) => (
             <StyledForm>
               <h5>КОЛИЧЕСТВО ПЕРЕСАДОК</h5>
               <SearchInput

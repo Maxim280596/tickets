@@ -1,5 +1,6 @@
 import Logotype from '../logo.png';
 import { Row, Container } from 'react-bootstrap';
+
 import { StyledLogo, StyledLogoCol } from '../styled/StyledLogo';
 
 export const Logo = () => (
