@@ -9,21 +9,22 @@ import {
   StyledTitle,
   StyledValue,
 } from '../styled/StyledTicket';
+import {getTimeToString,getDurationToString} from '../helpers'
 
 export const Ticket: React.FC<{
-  price: String;
-  origin: String;
-  destination: String;
-  destinationBack: String;
-  originBack: String;
-  stops: Number;
-  stopsBack: Number;
-  stopsCity: String;
-  stopsCityBack: String;
-  departureDate: any;
-  duration: any;
-  departureDateBack: any;
-  durationBack: any;
+  price: string;
+  origin: string;
+  destination: string;
+  destinationBack: string;
+  originBack: string;
+  stops: number;
+  stopsBack: number;
+  stopsCity: string;
+  stopsCityBack: string;
+  departureDate: string;
+  duration: number;
+  departureDateBack: string;
+  durationBack: number;
 }> = ({
   price,
   origin,
@@ -39,19 +40,19 @@ export const Ticket: React.FC<{
   departureDateBack,
   durationBack,
 }) => {
-  const getTimeToString = (date: any, duration: any) => {
-    let dateStart = new Date(date);
-    let dateEnd = new Date(dateStart.getTime() + duration * 60 * 1000);
-    return (
-      dateStart.toTimeString().slice(0, 5) +
-      ' - ' +
-      dateEnd.toTimeString().slice(0, 5)
-    );
-  };
+  // const getTimeToString = (date:any, duration:any) => {
+  //   let dateStart = new Date(date);
+  //   let dateEnd = new Date(dateStart.getTime() + duration * 60 * 1000);
+  //   return (
+  //     dateStart.toTimeString().slice(0, 5) +
+  //     ' - ' +
+  //     dateEnd.toTimeString().slice(0, 5)
+  //   );
+  // };
 
-  const getDurationToString = (duration: any) => {
-    return Math.floor(duration / 60).toString() + 'ч ' + (duration % 60) + 'м';
-  };
+  // const getDurationToString = (duration: any) => {
+  //   return Math.floor(duration / 60).toString() + 'ч ' + (duration % 60) + 'м';
+  // };
 
   return (
     <StyledRow>

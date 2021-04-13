@@ -1,27 +1,37 @@
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { StyledButtonFast, StyledButtonPrice } from '../styled/StyledFilter';
 import {
   filteringFast,
   filteringPrice,
-} from '../src/redux/ducks/ticketsReducer';
+} from '../redux/ducks/ticketsReduser';
 
 const Filter = () => {
   const dispatch = useDispatch();
-
+  const [price, setPrice] = useState(false);
+  const [fast, setFast] = useState(false);
   const filterPrice = () => {
     dispatch(filteringPrice());
+    setPrice(true);
+    setFast(false);
   };
 
   const filterFast = () => {
     dispatch(filteringFast());
+    setPrice(false);
+    setFast(true);
   };
 
   return (
-    <div>
-      <StyledButtonPrice onClick={filterPrice}>САМЫЙ ДЕШЕВЫЙ</StyledButtonPrice>
-      <StyledButtonFast onClick={filterFast}>САМЫЙ БЫСТРЫЙ</StyledButtonFast>
-    </div>
+    <>
+      <StyledButtonPrice onClick={filterPrice} active={price}>
+        САМЫЙ ДЕШЕВЫЙ
+      </StyledButtonPrice>
+      <StyledButtonFast onClick={filterFast} active={fast}>
+        САМЫЙ БЫСТРЫЙ
+      </StyledButtonFast>
+    </>
   );
 };
 

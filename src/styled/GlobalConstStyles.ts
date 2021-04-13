@@ -1,4 +1,5 @@
 export const WHITE_COLOR = 'white';
+export const BLACK_COLOR = 'black';
 export const BLUE_COLOR = '#2196f3';
 export const GREY_COLOR = '#b6c2c9';
 export const BOX_COLOR = '#e0e0e0';

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { store } from './src/redux/ducks/index';
+import { store } from './redux/index';
 import App from './App';
 
 ReactDOM.render(

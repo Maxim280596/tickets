@@ -6,16 +6,15 @@ import { Ticket } from './Ticket';
 import {
   asyncSendRequestAction,
   renderTickets,
-} from '../src/redux/ducks/ticketsReducer';
+} from '../redux/ducks/ticketsReduser';
 
 const TicketsList = ({ state }: any) => {
   const dispatch = useDispatch();
 
-  const { isLoaded, data, error }: any = useSelector((state) => state);
+  const{ isLoaded, data, error }:any = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(asyncSendRequestAction());
-    console.log(data);
   }, [dispatch, data]);
 
   useEffect(() => {
@@ -27,7 +26,7 @@ const TicketsList = ({ state }: any) => {
   }, [isLoaded, dispatch, data]);
 
   return (
-    <div>
+    <>
       {state.data ? (
         state.renderTickets.map((item: any) => {
           return (
@@ -52,11 +51,11 @@ const TicketsList = ({ state }: any) => {
       ) : (
         <h2>{error}</h2>
       )}
-    </div>
+    </>
   );
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: {mainReducer:{}}) => {
   return {
     state: state.mainReducer,
   };

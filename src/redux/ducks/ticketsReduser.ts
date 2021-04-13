@@ -1,11 +1,11 @@
 import { put, takeEvery, call, all } from 'typed-redux-saga';
 
-import { SEARCH_ID_URL, SEARCH_TICKETS } from '../../../api';
+import { SEARCH_ID_URL, SEARCH_TICKETS } from '../../api';
 
 const initialState: {
-  data: any[];
+  data: [];
   isLoaded: boolean;
-  renderTickets: any[];
+  renderTickets: [];
   error: string;
 } = {
   data: [],
@@ -16,13 +16,16 @@ const initialState: {
 
 const FAIL_REQUEST = 'tickets/tickets/FAIL_REQUEST';
 const SEND_REQUEST = 'tickets/tickets/SEND_REQUEST';
-const SUCCESSFUL_REQUEST = 'tickets/tickets/SUCCESSFUL_REQUEST'; 
+const SUCCESSFUL_REQUEST = 'tickets/tickets/SUCCESSFUL_REQUEST';
 const RENDER_TICKETS = 'tickets/render/RENDER_TICKETS';
 const FILTER_TICKETS = 'filter/one/FILTER_TICKETS';
 const SMALL_PRICE = 'sort/smallSMALL_PRICE';
 const FAST_TICKET = 'sort/fast/FAST_TICKET';
 
-export default function mainReducer(state = initialState, action: any) {
+export default function mainReducer(
+  state = initialState,
+  action: { type: string; data: []; payload: [] }
+) {
   switch (action.type) {
     case SUCCESSFUL_REQUEST:
       return { ...state, data: action.data, isLoaded: true };
@@ -30,46 +33,45 @@ export default function mainReducer(state = initialState, action: any) {
       return { ...state, error: 'NO DATA' };
     case RENDER_TICKETS:
       let renderTicket = state.data;
-      console.log(state, 9999);
       return { ...state, renderTickets: [...renderTicket] };
     case FILTER_TICKETS:
-      console.log(action.payload);
-      let filteredArr = state.data;
-      let arr: any[] = [];
-      action.payload.map((item: any) => {
+      let filteredArrayTickets = state.data;
+      let filterTickets: never[] = [];
+      let checkedCheckbox = action.payload;
+
+      checkedCheckbox.map((item: { checked: Boolean; length: Number }) => {
         if (item.checked) {
-          arr = filteredArr.filter(
+          filterTickets = filteredArrayTickets.filter(
             (a: any) =>
               a.segments[0].stops.length === item.length &&
               a.segments[1].stops.length === item.length
           );
-          console.log(arr);
         }
         if (item.checked && item.length === 10) {
-          arr = state.data;
+          filterTickets = filteredArrayTickets;
         }
-
-        return arr;
+        return filterTickets;
       });
-
-      return { ...state, renderTickets: [...arr] };
-
+      return { ...state, renderTickets: [...filterTickets] };
     case SMALL_PRICE:
       let data = state;
-      const filterTickets = state.renderTickets.sort(
-        (a: any, b: any) => a.price - b.price
+      const filterPriceTickets = state.renderTickets.sort(
+        (bigItemPrice: { price: number }, smallItemPrice: { price: number }) =>
+          bigItemPrice.price - smallItemPrice.price
       );
-      data.renderTickets = filterTickets;
-      console.log(data);
+      data.renderTickets = filterPriceTickets;
       return { ...state, ...data };
 
     case FAST_TICKET:
       let dataFast = state;
       const filterFastTickets = state.renderTickets.sort(
-        (a: any, b: any) => a.segments[0].duration - b.segments[0].duration
+        (
+          sortItemSmall: { segments: [{ duration: number }] },
+          sortItemBig: { segments: [{ duration: number }] }
+        ) =>
+          sortItemSmall.segments[0].duration - sortItemBig.segments[0].duration
       );
       dataFast.renderTickets = filterFastTickets;
-      console.log(dataFast);
       return { ...state, ...dataFast };
 
     default:
@@ -77,7 +79,7 @@ export default function mainReducer(state = initialState, action: any) {
   }
 }
 
-export const filterTickets = (payload: any) => ({
+export const filterTickets = (payload: {}) => ({
   type: FILTER_TICKETS,
   payload,
 });
@@ -85,11 +87,11 @@ export const renderTickets = () => ({ type: RENDER_TICKETS });
 export const filteringPrice = () => ({ type: SMALL_PRICE });
 export const filteringFast = () => ({ type: FAST_TICKET });
 
-export function failRequestAction(error: any) {
+export function failRequestAction(error: String) {
   return { type: FAIL_REQUEST, error };
 }
 
-export function successRequestAction(data: any[]) {
+export function successRequestAction(data: []) {
   return { type: SUCCESSFUL_REQUEST, data };
 }
 
@@ -106,8 +108,8 @@ export function* rootSaga() {
 }
 
 type id = any;
-
 type data = any;
+
 export function* fetchTicketsAsync(): Generator<id, data> {
   try {
     const id: any = yield call(() =>
