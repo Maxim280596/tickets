@@ -8,7 +8,7 @@ import {
   renderTickets,
 } from '../redux/ducks/ticketsReduser';
 
-const TicketsList = ({ state }: any) => {
+const TicketsList = ({ state } : any) => {
   const dispatch = useDispatch();
 
   const{ isLoaded, data, error }:any = useSelector((state) => state);

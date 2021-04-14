@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <Filter/> Filter have rendered correctly 1`] = `
+Array [
+  <button
+    class="sc-bdfBwQ eJidin"
+  >
+    САМЫЙ ДЕШЕВЫЙ
+  </button>,
+  <button
+    class="sc-gsTCUz kzxJJP"
+  >
+    САМЫЙ БЫСТРЫЙ
+  </button>,
+]
+`;

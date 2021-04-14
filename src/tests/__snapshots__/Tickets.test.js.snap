@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <Ticket/> Logo have rendered correctly 1`] = `
+<div
+  class="sc-bdfBwQ kbqjdu"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-lg-4 col-sm-4 col-4"
+    >
+      <div
+        class="sc-gsTCUz UfCZn col"
+      >
+        100 р.
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-sm-4 col-5 offset-lg-4 offset-sm-4 offset-3"
+    >
+      <div>
+        <img
+          alt="s7 airlines logo"
+          class="sc-dlfnbm jQDMbB"
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c2/S7_new_logo.svg"
+        />
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-sm-4 col-4"
+    >
+      <div
+        class="sc-hKgILt lcRqhO"
+      >
+        <span
+          class="sc-eCssSg cjdKsd"
+        >
+          MOW-HKT
+        </span>
+        <span
+          class="sc-jSgupP bdsxmA"
+        >
+          00:00 - 06:03
+        </span>
+      </div>
+      <div
+        class="sc-hKgILt lcRqhO"
+      >
+        <span
+          class="sc-eCssSg cjdKsd"
+        >
+          HKT-MOW
+        </span>
+        <span
+          class="sc-jSgupP bdsxmA"
+        >
+          00:00 - 03:52
+        </span>
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-sm-4 col-4"
+    >
+      <div
+        class="sc-hKgILt lcRqhO"
+      >
+        <span
+          class="sc-eCssSg cjdKsd"
+        >
+          В пути
+        </span>
+        <span
+          class="sc-jSgupP bdsxmA"
+        >
+          2022ч 3м
+        </span>
+      </div>
+      <div
+        class="sc-hKgILt lcRqhO"
+      >
+        <span
+          class="sc-eCssSg cjdKsd"
+        >
+          В пути
+        </span>
+        <span
+          class="sc-jSgupP bdsxmA"
+        >
+          3ч 52м
+        </span>
+      </div>
+    </div>
+    <div
+      class="col-lg-4 col-sm-4 col-4"
+    >
+      <div
+        class="sc-hKgILt lcRqhO"
+      >
+        <span
+          class="sc-eCssSg cjdKsd"
+        >
+          3 пересадки
+        </span>
+        <span
+          class="sc-jSgupP bdsxmA"
+        >
+          KV,LG,HKT
+        </span>
+      </div>
+      <div
+        class="sc-hKgILt lcRqhO"
+      >
+        <span
+          class="sc-eCssSg cjdKsd"
+        >
+          2 пересадки
+        </span>
+        <span
+          class="sc-jSgupP bdsxmA"
+        >
+          KV,LG,HKT
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -7,6 +7,7 @@ import {
   filteringPrice,
 } from '../redux/ducks/ticketsReduser';
 
+
 const Filter = () => {
   const dispatch = useDispatch();
   const [price, setPrice] = useState(false);
