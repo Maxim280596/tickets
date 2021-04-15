@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <TicketList/> TicketsList have rendered correctly 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <Connect(TicketsList)
+    state={
+      Object {
+        "data": Array [
+          Array [
+            Object {
+              "carrier": "S7",
+              "price": 30546,
+              "segments": Array [
+                Object {
+                  "date": "2021-04-24T02:20:00.000Z",
+                  "destination": "HKT",
+                  "duration": 1769,
+                  "origin": "MOW",
+                  "stops": Array [
+                    "HKG",
+                    "BKK",
+                    "AUH",
+                  ],
+                },
+                Object {
+                  "date": "2021-05-14T09:20:00.000Z",
+                  "destination": "MOW",
+                  "duration": 1196,
+                  "origin": "HKT",
+                  "stops": Array [],
+                },
+              ],
+            },
+            Object {
+              "carrier": "EK",
+              "price": 79420,
+              "segments": Array [
+                Object {
+                  "date": "2021-04-24T12:36:00.000Z",
+                  "destination": "HKT",
+                  "duration": 792,
+                  "origin": "MOW",
+                  "stops": Array [
+                    "KUL",
+                    "AUH",
+                  ],
+                },
+                Object {
+                  "date": "2021-05-14T02:04:00.000Z",
+                  "destination": "MOW",
+                  "duration": 1149,
+                  "origin": "HKT",
+                  "stops": Array [
+                    "DXB",
+                    "KUL",
+                  ],
+                },
+              ],
+            },
+            Object {
+              "carrier": "FV",
+              "price": 45377,
+              "segments": Array [
+                Object {
+                  "date": "2021-04-24T12:28:00.000Z",
+                  "destination": "HKT",
+                  "duration": 889,
+                  "origin": "MOW",
+                  "stops": Array [
+                    "DXB",
+                  ],
+                },
+                Object {
+                  "date": "2021-05-14T16:38:00.000Z",
+                  "destination": "MOW",
+                  "duration": 639,
+                  "origin": "HKT",
+                  "stops": Array [
+                    "IST",
+                    "AUH",
+                    "SIN",
+                  ],
+                },
+              ],
+            },
+          ],
+        ],
+        "error": "",
+        "isLoaded": true,
+        "renderTickets": Array [
+          Array [
+            Object {
+              "carrier": "S7",
+              "price": 30546,
+              "segments": Array [
+                Object {
+                  "date": "2021-04-24T02:20:00.000Z",
+                  "destination": "HKT",
+                  "duration": 1769,
+                  "origin": "MOW",
+                  "stops": Array [
+                    "HKG",
+                    "BKK",
+                    "AUH",
+                  ],
+                },
+                Object {
+                  "date": "2021-05-14T09:20:00.000Z",
+                  "destination": "MOW",
+                  "duration": 1196,
+                  "origin": "HKT",
+                  "stops": Array [],
+                },
+              ],
+            },
+            Object {
+              "carrier": "EK",
+              "price": 79420,
+              "segments": Array [
+                Object {
+                  "date": "2021-04-24T12:36:00.000Z",
+                  "destination": "HKT",
+                  "duration": 792,
+                  "origin": "MOW",
+                  "stops": Array [
+                    "KUL",
+                    "AUH",
+                  ],
+                },
+                Object {
+                  "date": "2021-05-14T02:04:00.000Z",
+                  "destination": "MOW",
+                  "duration": 1149,
+                  "origin": "HKT",
+                  "stops": Array [
+                    "DXB",
+                    "KUL",
+                  ],
+                },
+              ],
+            },
+            Object {
+              "carrier": "FV",
+              "price": 45377,
+              "segments": Array [
+                Object {
+                  "date": "2021-04-24T12:28:00.000Z",
+                  "destination": "HKT",
+                  "duration": 889,
+                  "origin": "MOW",
+                  "stops": Array [
+                    "DXB",
+                  ],
+                },
+                Object {
+                  "date": "2021-05-14T16:38:00.000Z",
+                  "destination": "MOW",
+                  "duration": 639,
+                  "origin": "HKT",
+                  "stops": Array [
+                    "IST",
+                    "AUH",
+                    "SIN",
+                  ],
+                },
+              ],
+            },
+          ],
+        ],
+      }
+    }
+  />
+</ContextProvider>
+`;
