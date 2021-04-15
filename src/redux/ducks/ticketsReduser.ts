@@ -28,6 +28,7 @@ export default function mainReducer(
 ) {
   switch (action.type) {
     case SUCCESSFUL_REQUEST:
+      console.log(action.data)
       return { ...state, data: action.data, isLoaded: true };
     case FAIL_REQUEST:
       return { ...state, error: 'NO DATA' };

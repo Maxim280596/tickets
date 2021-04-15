@@ -2,7 +2,7 @@
 
 exports[`Testing <Ticket/> Logo have rendered correctly 1`] = `
 <div
-  class="sc-bdfBwQ kbqjdu"
+  class="sc-bdvvaa cpgkWG"
 >
   <div
     class="row"
@@ -11,7 +11,7 @@ exports[`Testing <Ticket/> Logo have rendered correctly 1`] = `
       class="col-lg-4 col-sm-4 col-4"
     >
       <div
-        class="sc-gsTCUz UfCZn col"
+        class="sc-gsDJrp gDforR col"
       >
         100 р.
       </div>
@@ -22,7 +22,7 @@ exports[`Testing <Ticket/> Logo have rendered correctly 1`] = `
       <div>
         <img
           alt="s7 airlines logo"
-          class="sc-dlfnbm jQDMbB"
+          class="sc-dkPtyc jjqLMR"
           src="https://upload.wikimedia.org/wikipedia/commons/c/c2/S7_new_logo.svg"
         />
       </div>
@@ -31,29 +31,29 @@ exports[`Testing <Ticket/> Logo have rendered correctly 1`] = `
       class="col-lg-4 col-sm-4 col-4"
     >
       <div
-        class="sc-hKgILt lcRqhO"
+        class="sc-hKwCoD emTTIN"
       >
         <span
-          class="sc-eCssSg cjdKsd"
+          class="sc-eCImvq hVzQbQ"
         >
           MOW-HKT
         </span>
         <span
-          class="sc-jSgupP bdsxmA"
+          class="sc-jRQAMF eOXDya"
         >
           00:00 - 06:03
         </span>
       </div>
       <div
-        class="sc-hKgILt lcRqhO"
+        class="sc-hKwCoD emTTIN"
       >
         <span
-          class="sc-eCssSg cjdKsd"
+          class="sc-eCImvq hVzQbQ"
         >
           HKT-MOW
         </span>
         <span
-          class="sc-jSgupP bdsxmA"
+          class="sc-jRQAMF eOXDya"
         >
           00:00 - 03:52
         </span>
@@ -63,29 +63,29 @@ exports[`Testing <Ticket/> Logo have rendered correctly 1`] = `
       class="col-lg-4 col-sm-4 col-4"
     >
       <div
-        class="sc-hKgILt lcRqhO"
+        class="sc-hKwCoD emTTIN"
       >
         <span
-          class="sc-eCssSg cjdKsd"
+          class="sc-eCImvq hVzQbQ"
         >
           В пути
         </span>
         <span
-          class="sc-jSgupP bdsxmA"
+          class="sc-jRQAMF eOXDya"
         >
           2022ч 3м
         </span>
       </div>
       <div
-        class="sc-hKgILt lcRqhO"
+        class="sc-hKwCoD emTTIN"
       >
         <span
-          class="sc-eCssSg cjdKsd"
+          class="sc-eCImvq hVzQbQ"
         >
           В пути
         </span>
         <span
-          class="sc-jSgupP bdsxmA"
+          class="sc-jRQAMF eOXDya"
         >
           3ч 52м
         </span>
@@ -95,29 +95,29 @@ exports[`Testing <Ticket/> Logo have rendered correctly 1`] = `
       class="col-lg-4 col-sm-4 col-4"
     >
       <div
-        class="sc-hKgILt lcRqhO"
+        class="sc-hKwCoD emTTIN"
       >
         <span
-          class="sc-eCssSg cjdKsd"
+          class="sc-eCImvq hVzQbQ"
         >
           3 пересадки
         </span>
         <span
-          class="sc-jSgupP bdsxmA"
+          class="sc-jRQAMF eOXDya"
         >
           KV,LG,HKT
         </span>
       </div>
       <div
-        class="sc-hKgILt lcRqhO"
+        class="sc-hKwCoD emTTIN"
       >
         <span
-          class="sc-eCssSg cjdKsd"
+          class="sc-eCImvq hVzQbQ"
         >
           2 пересадки
         </span>
         <span
-          class="sc-jSgupP bdsxmA"
+          class="sc-jRQAMF eOXDya"
         >
           KV,LG,HKT
         </span>

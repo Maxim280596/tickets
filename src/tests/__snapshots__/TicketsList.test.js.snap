@@ -32,6 +32,19 @@ exports[`Testing <TicketList/> TicketsList have rendered correctly 1`] = `
     }
   }
 >
-  <Connect(TicketsList) />
+  <Connect(TicketsList)
+    state={
+      Object {
+        "data": Array [
+          Object {
+            "price": 1234,
+          },
+        ],
+        "error": "",
+        "isLoaded": false,
+        "renderTickets": Array [],
+      }
+    }
+  />
 </ContextProvider>
 `;

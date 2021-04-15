@@ -11,3 +11,4 @@ export const getTimeToString = (date:string|number|Date, duration:number) => {
 export const getDurationToString = (duration: number) => {
   return Math.floor(duration / 60).toString() + 'ч ' + (duration % 60) + 'м';
 };
+
