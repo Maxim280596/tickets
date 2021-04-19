@@ -6,15 +6,15 @@ import { Formik } from 'formik';
 import { filterTickets } from '../redux/ducks/ticketsReduser';
 import { StyledForm } from '../styled/StyledSearch';
 import { SearchInput } from './SearchInput';
-import {checkboxOptions} from '../consts'
+import { checkboxOptions } from '../constants';
+import { Checkbox } from '../types';
 
 const Search: React.FC = () => {
   const history = useHistory();
   const [options, setOptions] = useState(checkboxOptions);
   const dispatch = useDispatch();
-
-  const toggleCheckbox = (option: {id: number}) => {
-    const updatedOptions = options.map((item:{ id: number; path: string; value: string; checked: boolean; length: number; }) => {
+  const toggleCheckbox = (option: { id: number }) => {
+    const updatedOptions = options.map((item: Checkbox) => {
       if (item.id === option.id) {
         item.checked = !item.checked;
         dispatch(filterTickets(options));

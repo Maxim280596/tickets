@@ -1,4 +1,3 @@
-
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { all } from 'redux-saga/effects';
@@ -7,7 +6,7 @@ import mainReducer, { rootSaga } from './ducks/ticketsReduser';
 
 const sagaMiddleware = createSagaMiddleware();
 const rootReducer = combineReducers({
-  mainReducer,
+  mainReducer
 });
 
 export const store = createStore(

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 
 import { SearchInput } from '../components/SearchInput';
-import { checkboxOptions } from '../consts.ts';
+import { checkboxOptions } from '../constants.ts';
 
 describe('Testing <SearchInput/>', () => {
   let searchinput;

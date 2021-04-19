@@ -3,7 +3,7 @@ import mainReducer, {
   filteringFast,
   filteringPrice,
   filterTickets,
-  renderTickets,
+  renderTicket,
   successRequestAction,
 } from '../redux/ducks/ticketsReduser';
 
@@ -103,44 +103,44 @@ const state = {
   error: ' ',
 };
 
-it('should be test data added in the state', () => { 
+it('should be test data added in the state', () => {
   let action = successRequestAction(actionState);
   let newState = mainReducer(state, action);
   expect(newState.data.length).toBe(3);
   expect(newState.isLoaded).toBe(true);
 });
 
-it ('should be test error = "NO DATA"', ()=>{
+it('should be test error = "NO DATA"', () => {
   let action = failRequestAction('404');
   let newState = mainReducer(state, action);
   expect(newState.error).toBe('NO DATA');
-})
+});
 
-it ('should be added data in renderTickets', ()=>{
-  let action = renderTickets;
+it('should be added data in renderTickets', () => {
+  let action = renderTicket();
   let newState = mainReducer(state, action);
   expect(newState.renderTickets).toEqual(newState.data);
-})
+});
 
 const filterState = {
   renderTickets: actionState,
-  data: actionState
-}
+  data: actionState,
+};
 
-it ('should be filterTickets add in the state one ticket', ()=>{
+it('should be filterTickets add in the state one ticket', () => {
   let action = filterTickets(filterAction);
   let newState = mainReducer(filterState, action);
   expect(newState.renderTickets.length).toBe(1);
-})
+});
 
-it ('should be filteringPrice add ticket in first position', () => {
+it('should be filteringPrice add ticket in first position', () => {
   let action = filteringPrice;
   let newState = mainReducer(filterState, action);
   expect(newState.renderTickets[0].price).toBe(30546);
-})
+});
 
-it ('should be first ticket duration must be 1789', () => {
+it('should be first ticket duration must be 1789', () => {
   let action = filteringFast;
   let newState = mainReducer(filterState, action);
   expect(newState.renderTickets[0].segments[0].duration).toBe(1769);
-})
+});

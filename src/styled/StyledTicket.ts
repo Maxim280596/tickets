@@ -6,6 +6,15 @@ import {
   BOX_COLOR,
   BLUE_COLOR,
   GREY_COLOR,
+  PRICE_MEDIA_525px,
+  PRICE_MEDIA_425px,
+  PRICE_MEDIA_335px,
+  IMG_MEDIA_535px,
+  IMG_MEDIA_326px,
+  TICKET_MEDIA_500px,
+  TICKET_MEDIA_426px,
+  TICKET_MEDIA_360px,
+  TITLE_MEDIA_373px,
 } from './GlobalConstStyles';
 
 export const StyledRow = styled.div`
@@ -15,21 +24,22 @@ export const StyledRow = styled.div`
   padding-bottom: 10px;
   background-color: ${WHITE_COLOR};
 `;
+
 export const StyledPrice = styled(Col)`
   align-items: flex-start;
   color: ${BLUE_COLOR};
-  font-size: 35px;
+  font-size: 33px;
   padding: 20px;
 
-  @media (max-width: 525px) {
+  @media (max-width: ${PRICE_MEDIA_525px}) {
     font-size: 30px;
     padding: 10px;
   }
-  @media (max-width: 419px) {
+  @media (max-width: ${PRICE_MEDIA_425px}) {
     font-size: 20px;
     padding: 10px;
   }
-  @media (max-width: 326px) {
+  @media (max-width: ${PRICE_MEDIA_335px}) {
     font-size: 18px;
     padding: 8px;
   }
@@ -41,10 +51,10 @@ export const StyledImg = styled.img`
   padding: 20px;
   align-items: flex-start;
 
-  @media (max-width: 500px) {
+  @media (max-width: ${IMG_MEDIA_535px}) {
     padding: 10px;
   }
-  @media (max-width: 326px) {
+  @media (max-width: ${IMG_MEDIA_326px}) {
     padding: 8px;
   }
 `;
@@ -55,14 +65,14 @@ export const StyledDiv = styled.div`
   align-items: flex-start;
   margin-bottom: 15px;
   padding-left: 20px;
-  @media (max-width: 500px) {
+  @media (max-width: ${TICKET_MEDIA_500px}) {
     padding-left: 10px;
   }
-  @media (max-width: 426px) {
+  @media (max-width: ${TICKET_MEDIA_426px}) {
     padding-left: 2px;
     padding-right: 2px;
   }
-  @media (max-width: 360px) {
+  @media (max-width: ${TICKET_MEDIA_360px}) {
     padding-left: 2px;
     padding-right: 2px;
   }
@@ -72,14 +82,14 @@ export const StyledTitle = styled.span`
   color: ${GREY_COLOR};
   font-weight: 400;
   margin-bottom: 0;
-  @media (max-width: 373px) {
+  @media (max-width: ${TITLE_MEDIA_373px}) {
     font-size: 12px;
   }
 `;
 export const StyledValue = styled.span`
   font-weight: 500;
   margin-bottom: 0;
-  @media (max-width: 373px) {
+  @media (max-width: ${TITLE_MEDIA_373px}) {
     font-size: 12px;
   }
 `;

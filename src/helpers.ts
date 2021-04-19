@@ -2,8 +2,8 @@ export const getTimeToString = (
   date: string | number | Date,
   duration: number
 ) => {
-  let dateStart = new Date(date);
-  let dateEnd = new Date(dateStart.getTime() + duration * 60 * 1000);
+  const dateStart = new Date(date);
+  const dateEnd = new Date(dateStart.getTime() + duration * 60 * 1000);
   return (
     dateStart.toTimeString().slice(0, 5) +
     ' - ' +
@@ -31,12 +31,15 @@ export const sortByDuration = (arr: []) => {
   );
 };
 
-
-export const filterByStops = (checkboxArr:[],filterArr:never[], filteredArray:[] ) => {
+export const filterByStops = (
+  checkboxArr: [],
+  filterArr: never[],
+  filteredArray: []
+) => {
   checkboxArr.map((item: { checked: Boolean; length: Number }) => {
     if (item.checked) {
       filterArr = filteredArray.filter(
-        (a: any) =>
+        (a: { segments: [{ stops: [] }, { stops: [] }] }) =>
           a.segments[0].stops.length === item.length &&
           a.segments[1].stops.length === item.length
       );
@@ -46,5 +49,5 @@ export const filterByStops = (checkboxArr:[],filterArr:never[], filteredArray:[]
     }
     return filterArr;
   });
-  return filterArr
-}
+  return filterArr;
+};

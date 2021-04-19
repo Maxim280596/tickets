@@ -1,14 +1,10 @@
-import { sortByPrice, sortByDuration, filterByStops } from './../../helpers';
 import { put, takeEvery, call, all } from 'typed-redux-saga';
 
-import { getId, getTickets} from '../../api';
+import { RootState } from './../../types';
+import { sortByPrice, sortByDuration, filterByStops } from './../../helpers';
+import { getId, getTickets } from '../../api';
 
-const initialState: {
-  data: [];
-  isLoaded: boolean;
-  renderTickets: [];
-  error: string;
-} = {
+const initialState: RootState = {
   data: [],
   isLoaded: false,
   renderTickets: [],
@@ -37,80 +33,61 @@ export default function mainReducer(
       return { ...state, renderTickets: [...renderTicket] };
     case FILTER_TICKETS:
       let filteredArrayTickets = state.data;
-      let filterTickets:never[] = [];
+      let filterTickets: never[] = [];
       let checkedCheckbox = action.payload;
-      filterTickets = filterByStops(checkedCheckbox, filterTickets, filteredArrayTickets)
-      // checkedCheckbox.map((item: { checked: Boolean; length: Number }) => {
-      //   if (item.checked) {
-      //     filterTickets = filteredArrayTickets.filter(
-      //       (a: any) =>
-      //         a.segments[0].stops.length === item.length &&
-      //         a.segments[1].stops.length === item.length
-      //     );
-      //   }
-      //   if (item.checked && item.length === 10) {
-      //     filterTickets = filteredArrayTickets;
-      //   }
-      //   return filterTickets;
-      // });
+      filterTickets = filterByStops(
+        checkedCheckbox,
+        filterTickets,
+        filteredArrayTickets
+      );
       return { ...state, renderTickets: [...filterTickets] };
     case SMALL_PRICE:
       let data = state;
-      let sortArrByPrice = state.renderTickets
+      let sortArrByPrice = state.renderTickets;
       const sortPriceTickets = sortByPrice(sortArrByPrice);
       data.renderTickets = sortPriceTickets;
       return { ...state, ...data };
-
     case FAST_TICKET:
       let dataFast = state;
-      let sortArrByDuration = state.renderTickets
-      const filterFastTickets = sortByDuration(sortArrByDuration)
+      let sortArrByDuration = state.renderTickets;
+      const filterFastTickets = sortByDuration(sortArrByDuration);
       dataFast.renderTickets = filterFastTickets;
       return { ...state, ...dataFast };
-
     default:
       return state;
   }
 }
 
+export const renderTicket = () => ({ type: RENDER_TICKETS });
+export const filteringPrice = () => ({ type: SMALL_PRICE });
+export const filteringFast = () => ({ type: FAST_TICKET });
+export const asyncSendRequestAction = () => ({ type: SEND_REQUEST });
 export const filterTickets = (payload: {}) => ({
   type: FILTER_TICKETS,
   payload,
 });
-export const renderTickets = () => ({ type: RENDER_TICKETS });
-export const filteringPrice = () => ({ type: SMALL_PRICE });
-export const filteringFast = () => ({ type: FAST_TICKET });
-
-export function failRequestAction(error: String) {
-  return { type: FAIL_REQUEST, error };
-}
-
-export function successRequestAction(data: []) {
-  return { type: SUCCESSFUL_REQUEST, data };
-}
-
-export function asyncSendRequestAction() {
-  return { type: SEND_REQUEST };
-}
-
+export const failRequestAction = (error: String) => ({
+  type: FAIL_REQUEST,
+  error,
+});
+export const successRequestAction = (data: []) => ({
+  type: SUCCESSFUL_REQUEST,
+  data,
+});
 export function* sendRequest() {
   yield takeEvery(SEND_REQUEST, fetchTicketsAsync);
 }
-
 export function* rootSaga() {
   yield all([sendRequest()]);
 }
 
-type id = any;
-type data = any;
-
-export function* fetchTicketsAsync(): Generator<id, data> {
+export function* fetchTicketsAsync() {
   try {
-    const id:any = yield call(() => getId());
-    const data: any = yield call(() => getTickets(id));
+    const id: ReturnType<typeof getId> = yield call(() => getId());
+    const data: [] = yield call(() => getTickets(id));
     yield put(successRequestAction(data));
     if (data) {
-      yield put(renderTickets());
+      yield put(renderTicket());
     }
   } catch (error) {
     yield put(failRequestAction(error));

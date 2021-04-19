@@ -16,5 +16,5 @@ export const GlobalStyle = createGlobalStyle`
   }
   input {
     transform: scale(1.5); 
-    }
+  }
 `;
