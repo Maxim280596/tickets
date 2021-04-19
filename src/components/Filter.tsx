@@ -25,10 +25,10 @@ const Filter = () => {
 
   return (
     <>
-      <StyledButtonPrice onClick={filterPrice} active={price}>
+      <StyledButtonPrice onClick={filterPrice} className="price" active={price}>
         САМЫЙ ДЕШЕВЫЙ
       </StyledButtonPrice>
-      <StyledButtonFast onClick={filterFast} active={fast}>
+      <StyledButtonFast onClick={filterFast} className="fast" active={fast}>
         САМЫЙ БЫСТРЫЙ
       </StyledButtonFast>
     </>

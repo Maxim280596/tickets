@@ -6,18 +6,20 @@ import configureStore from 'redux-mock-store';
 
 import Search from '../components/Search';
 
-
 describe('Testing <Search/>', () => {
   const initialState = { output: 10 };
   const mockStore = configureStore();
   let store;
-  it('Filter have rendered correctly', () => {
+  let search;
+  beforeAll(() => {
     store = mockStore(initialState);
-    const search = render(
+    search = render(
       <Provider store={store}>
         <Search />
       </Provider>
     );
+  });
+  it('should Search have be rendered correctly', () => {
     expect(toJson(search)).toMatchSnapshot();
   });
 });

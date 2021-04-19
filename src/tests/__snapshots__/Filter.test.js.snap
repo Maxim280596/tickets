@@ -1,16 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing <Filter/> Filter have rendered correctly 1`] = `
-Array [
-  <button
-    class="sc-bdfBwQ eJidin"
+exports[`Testing rendering of <Filter/> should Filter have be rendered correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Filter
+    onClick={[MockFunction]}
   >
-    САМЫЙ ДЕШЕВЫЙ
-  </button>,
-  <button
-    class="sc-gsTCUz kzxJJP"
-  >
-    САМЫЙ БЫСТРЫЙ
-  </button>,
-]
+    <styled.button
+      active={false}
+      className="price"
+      onClick={[Function]}
+    >
+      <button
+        className="sc-bdfBwQ eJidin price"
+        onClick={[Function]}
+      >
+        САМЫЙ ДЕШЕВЫЙ
+      </button>
+    </styled.button>
+    <styled.button
+      active={false}
+      className="fast"
+      onClick={[Function]}
+    >
+      <button
+        className="sc-gsTCUz kzxJJP fast"
+        onClick={[Function]}
+      >
+        САМЫЙ БЫСТРЫЙ
+      </button>
+    </styled.button>
+  </Filter>
+</Provider>
 `;

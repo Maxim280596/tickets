@@ -1,6 +1,7 @@
+import { sortByPrice, sortByDuration, filterByStops } from './../../helpers';
 import { put, takeEvery, call, all } from 'typed-redux-saga';
 
-import { SEARCH_ID_URL, SEARCH_TICKETS } from '../../api';
+import { getId, getTickets} from '../../api';
 
 const initialState: {
   data: [];
@@ -36,41 +37,34 @@ export default function mainReducer(
       return { ...state, renderTickets: [...renderTicket] };
     case FILTER_TICKETS:
       let filteredArrayTickets = state.data;
-      let filterTickets: never[] = [];
+      let filterTickets:never[] = [];
       let checkedCheckbox = action.payload;
-
-      checkedCheckbox.map((item: { checked: Boolean; length: Number }) => {
-        if (item.checked) {
-          filterTickets = filteredArrayTickets.filter(
-            (a: any) =>
-              a.segments[0].stops.length === item.length &&
-              a.segments[1].stops.length === item.length
-          );
-        }
-        if (item.checked && item.length === 10) {
-          filterTickets = filteredArrayTickets;
-        }
-        return filterTickets;
-      });
+      filterTickets = filterByStops(checkedCheckbox, filterTickets, filteredArrayTickets)
+      // checkedCheckbox.map((item: { checked: Boolean; length: Number }) => {
+      //   if (item.checked) {
+      //     filterTickets = filteredArrayTickets.filter(
+      //       (a: any) =>
+      //         a.segments[0].stops.length === item.length &&
+      //         a.segments[1].stops.length === item.length
+      //     );
+      //   }
+      //   if (item.checked && item.length === 10) {
+      //     filterTickets = filteredArrayTickets;
+      //   }
+      //   return filterTickets;
+      // });
       return { ...state, renderTickets: [...filterTickets] };
     case SMALL_PRICE:
       let data = state;
-      const filterPriceTickets = state.renderTickets.sort(
-        (bigItemPrice: { price: number }, smallItemPrice: { price: number }) =>
-          bigItemPrice.price - smallItemPrice.price
-      );
-      data.renderTickets = filterPriceTickets;
+      let sortArrByPrice = state.renderTickets
+      const sortPriceTickets = sortByPrice(sortArrByPrice);
+      data.renderTickets = sortPriceTickets;
       return { ...state, ...data };
 
     case FAST_TICKET:
       let dataFast = state;
-      const filterFastTickets = state.renderTickets.sort(
-        (
-          sortItemSmall: { segments: [{ duration: number }] },
-          sortItemBig: { segments: [{ duration: number }] }
-        ) =>
-          sortItemSmall.segments[0].duration - sortItemBig.segments[0].duration
-      );
+      let sortArrByDuration = state.renderTickets
+      const filterFastTickets = sortByDuration(sortArrByDuration)
       dataFast.renderTickets = filterFastTickets;
       return { ...state, ...dataFast };
 
@@ -112,17 +106,9 @@ type data = any;
 
 export function* fetchTicketsAsync(): Generator<id, data> {
   try {
-    const id: any = yield call(() =>
-      fetch(SEARCH_ID_URL).then((data) => data.json())
-    );
-    const data: any = yield call(() =>
-      fetch(SEARCH_TICKETS + id.searchId)
-        .then((data) => data.json())
-        .then((response) => response.tickets)
-    );
-
+    const id:any = yield call(() => getId());
+    const data: any = yield call(() => getTickets(id));
     yield put(successRequestAction(data));
-
     if (data) {
       yield put(renderTickets());
     }

@@ -11,7 +11,7 @@ import {
 const TicketsList = ({ state }: any) => {
   const dispatch = useDispatch();
 
-  const{ isLoaded, data, error }:any = useSelector((state) => state);
+  const{ isLoaded, data, error}:any = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(asyncSendRequestAction());
@@ -62,3 +62,4 @@ const mapStateToProps = (state: {mainReducer:{}}) => {
 };
 
 export default connect(mapStateToProps, null)(TicketsList);
+

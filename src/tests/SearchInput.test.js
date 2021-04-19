@@ -6,10 +6,13 @@ import { SearchInput } from '../components/SearchInput';
 import { checkboxOptions } from '../consts.ts';
 
 describe('Testing <SearchInput/>', () => {
-  it('SearchInput have rendered correctly', () => {
-    const searchinput = shallow(
+  let searchinput;
+  beforeAll(() => {
+    searchinput = shallow(
       <SearchInput options={checkboxOptions} name="checkboxOptions" />
     );
+  });
+  it('SearchInput have rendered correctly', () => {
     expect(toJson(searchinput)).toMatchSnapshot();
   });
 });

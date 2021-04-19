@@ -69,25 +69,27 @@ const actionState = [
   },
 ];
 
+let state = {
+  data: [...actionState],
+  isLoaded: true,
+  renderTickets: [...actionState],
+  error: '',
+};
 
 describe('Testing <TicketList/>', () => {
-  const mockStore = configureStore();
-  let props = {
-    state: {
-      data: [actionState],
-      isLoaded: true,
-      renderTickets: [actionState],
-      error: '',
-    },
-  };
-  let store;
-  it('TicketsList have rendered correctly', () => {
-    store = mockStore(props.state);
-    const ticketslist = shallow(
-      <Provider store={store}>
-        <TicketsList state={props.state} />
-      </Provider>
-    );
+  let setUp;
+  beforeEach(() => {
+    const mockStore = configureStore();
+    setUp = (state) =>
+      shallow(
+        <Provider store={mockStore(state)}>
+          <TicketsList {...state} />
+        </Provider>
+      );
+  });
+
+  it('should TicketsList have rendered correctly', () => {
+    const ticketslist = setUp(state);
     expect(toJson(ticketslist)).toMatchSnapshot();
   });
 });

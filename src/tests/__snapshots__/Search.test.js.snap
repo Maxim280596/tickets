@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing <Search/> Filter have rendered correctly 1`] = `
+exports[`Testing <Search/> should Search have be rendered correctly 1`] = `
 <div>
   <form
     class="sc-bdfBwQ hxMzZH"
