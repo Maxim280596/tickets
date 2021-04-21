@@ -11,6 +11,7 @@ describe('Testing <Search/>', () => {
   const mockStore = configureStore();
   let store;
   let search;
+
   beforeAll(() => {
     store = mockStore(initialState);
     search = render(
@@ -19,7 +20,9 @@ describe('Testing <Search/>', () => {
       </Provider>
     );
   });
+
   it('should Search have be rendered correctly', () => {
     expect(toJson(search)).toMatchSnapshot();
   });
+  
 });

@@ -4,10 +4,9 @@ require('jest-extended');
 
 configure({adapter: new Adapter()});
 
-
 const config = {
   "jest": {
-    "setupTestFrameworkScriptFile": "./testSetup.js"
+    "setupTestFrameworkScriptFile": './testSetup.js'
   }
 }
 

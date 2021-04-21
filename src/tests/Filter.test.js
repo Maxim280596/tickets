@@ -6,36 +6,43 @@ import configureStore from 'redux-mock-store';
 
 import Filter from '../components/Filter';
 
-let store;
-const onClick = jest.fn(),
+let store, onClick, setUp, props;
+beforeAll(() => {
+  onClick = jest.fn();
   props = {
     onClick,
   };
-const setUp = () =>
-  mount(
-    <Provider store={store}>
-      <Filter {...props} />
-    </Provider>
-  );
+  setUp = () =>
+    mount(
+      <Provider store={store}>
+        <Filter {...props} />
+      </Provider>
+    );
+});
 
 describe('Testing rendering of <Filter/>', () => {
   let component;
+
   beforeEach(() => {
     const initialState = {};
     const mockStore = configureStore();
     store = mockStore(initialState);
     component = setUp();
   });
+
   it('should Filter have be rendered correctly', () => {
     expect(toJson(component)).toMatchSnapshot();
   });
+
 });
 
 describe('testing onclick functions', () => {
   let functions;
+
   beforeEach(() => {
     functions = setUp();
   });
+
   it('should be filteredPrice must be active', () => {
     functions = functions.find('.price').first();
     functions.simulate('click');
@@ -43,6 +50,7 @@ describe('testing onclick functions', () => {
       expect(functions.prop('active')).toBe(true);
     });
   });
+
   it('should be filteredFast must be active', () => {
     functions = functions.find('.price').first();
     functions.simulate('click');
@@ -50,4 +58,5 @@ describe('testing onclick functions', () => {
       expect(functions.prop('active')).toBe(true);
     });
   });
+  
 });

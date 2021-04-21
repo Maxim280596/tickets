@@ -3,14 +3,14 @@
 exports[`Testing <Search/> should Search have be rendered correctly 1`] = `
 <div>
   <form
-    class="sc-bdfBwQ hxMzZH"
+    class="sc-bdfBwQ hDyynQ"
   >
     <h5>
       КОЛИЧЕСТВО ПЕРЕСАДОК
     </h5>
     <div>
       <div
-        class="sc-gsTCUz btRBl form-check"
+        class="sc-gsTCUz cOAnzj form-check"
       >
         <input
           checked=""
@@ -27,7 +27,7 @@ exports[`Testing <Search/> should Search have be rendered correctly 1`] = `
         </label>
       </div>
       <div
-        class="sc-gsTCUz btRBl form-check"
+        class="sc-gsTCUz cOAnzj form-check"
       >
         <input
           class="form-check-input"
@@ -43,7 +43,7 @@ exports[`Testing <Search/> should Search have be rendered correctly 1`] = `
         </label>
       </div>
       <div
-        class="sc-gsTCUz btRBl form-check"
+        class="sc-gsTCUz cOAnzj form-check"
       >
         <input
           class="form-check-input"
@@ -59,7 +59,7 @@ exports[`Testing <Search/> should Search have be rendered correctly 1`] = `
         </label>
       </div>
       <div
-        class="sc-gsTCUz btRBl form-check"
+        class="sc-gsTCUz cOAnzj form-check"
       >
         <input
           class="form-check-input"
@@ -75,7 +75,7 @@ exports[`Testing <Search/> should Search have be rendered correctly 1`] = `
         </label>
       </div>
       <div
-        class="sc-gsTCUz btRBl form-check"
+        class="sc-gsTCUz cOAnzj form-check"
       >
         <input
           class="form-check-input"

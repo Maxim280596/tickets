@@ -30,7 +30,6 @@ const TicketsList = (props: Props) => {
       }
     };
   }, [isLoaded, dispatch, data]);
-  console.log(props);
 
   return (
     <>

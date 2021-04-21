@@ -14,18 +14,18 @@ exports[`Testing rendering <Ticket/> should rendering Ticket correctly without p
         >
           <Col
             lg={4}
-            sm={4}
-            xs={4}
+            sm={5}
+            xs={5}
           >
             <div
-              className="col-lg-4 col-sm-4 col-4"
+              className="col-lg-4 col-sm-5 col-5"
             >
               <Styled(Col)>
                 <Col
-                  className="sc-gsTCUz UfCZn"
+                  className="sc-gsTCUz jzgiUW"
                 >
                   <div
-                    className="sc-gsTCUz UfCZn col"
+                    className="sc-gsTCUz jzgiUW col"
                   >
                      р.
                   </div>
@@ -42,19 +42,19 @@ exports[`Testing rendering <Ticket/> should rendering Ticket correctly without p
             }
             sm={
               Object {
-                "offset": 4,
+                "offset": 3,
                 "span": 4,
               }
             }
             xs={
               Object {
-                "offset": 3,
+                "offset": 2,
                 "span": 5,
               }
             }
           >
             <div
-              className="col-lg-4 col-sm-4 col-5 offset-lg-4 offset-sm-4 offset-3"
+              className="col-lg-4 col-sm-4 col-5 offset-lg-4 offset-sm-3 offset-2"
             >
               <div>
                 <styled.img
@@ -63,7 +63,7 @@ exports[`Testing rendering <Ticket/> should rendering Ticket correctly without p
                 >
                   <img
                     alt="s7 airlines logo"
-                    className="sc-dlfnbm jQDMbB"
+                    className="sc-dlfnbm iBFTdI"
                     src="https://upload.wikimedia.org/wikipedia/commons/c/c2/S7_new_logo.svg"
                   />
                 </styled.img>
@@ -80,18 +80,18 @@ exports[`Testing rendering <Ticket/> should rendering Ticket correctly without p
             >
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                       -
                     </span>
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     >
                       Inval - Inval
                     </span>
@@ -100,18 +100,18 @@ exports[`Testing rendering <Ticket/> should rendering Ticket correctly without p
               </styled.div>
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                       -
                     </span>
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     >
                       Inval - Inval
                     </span>
@@ -130,18 +130,18 @@ exports[`Testing rendering <Ticket/> should rendering Ticket correctly without p
             >
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                       В пути
                     </span>
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     >
                       NaNч NaNм
                     </span>
@@ -150,18 +150,18 @@ exports[`Testing rendering <Ticket/> should rendering Ticket correctly without p
               </styled.div>
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                       В пути
                     </span>
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     >
                       NaNч NaNм
                     </span>
@@ -180,36 +180,36 @@ exports[`Testing rendering <Ticket/> should rendering Ticket correctly without p
             >
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                        пересадки
                     </span>
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     />
                   </styled.span>
                 </div>
               </styled.div>
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                        пересадки
                     </span>
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     />
                   </styled.span>
                 </div>
@@ -251,18 +251,18 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
         >
           <Col
             lg={4}
-            sm={4}
-            xs={4}
+            sm={5}
+            xs={5}
           >
             <div
-              className="col-lg-4 col-sm-4 col-4"
+              className="col-lg-4 col-sm-5 col-5"
             >
               <Styled(Col)>
                 <Col
-                  className="sc-gsTCUz UfCZn"
+                  className="sc-gsTCUz jzgiUW"
                 >
                   <div
-                    className="sc-gsTCUz UfCZn col"
+                    className="sc-gsTCUz jzgiUW col"
                   >
                     100
                      р.
@@ -280,19 +280,19 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
             }
             sm={
               Object {
-                "offset": 4,
+                "offset": 3,
                 "span": 4,
               }
             }
             xs={
               Object {
-                "offset": 3,
+                "offset": 2,
                 "span": 5,
               }
             }
           >
             <div
-              className="col-lg-4 col-sm-4 col-5 offset-lg-4 offset-sm-4 offset-3"
+              className="col-lg-4 col-sm-4 col-5 offset-lg-4 offset-sm-3 offset-2"
             >
               <div>
                 <styled.img
@@ -301,7 +301,7 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
                 >
                   <img
                     alt="s7 airlines logo"
-                    className="sc-dlfnbm jQDMbB"
+                    className="sc-dlfnbm iBFTdI"
                     src="https://upload.wikimedia.org/wikipedia/commons/c/c2/S7_new_logo.svg"
                   />
                 </styled.img>
@@ -318,11 +318,11 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
             >
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                       MOW
                       -
@@ -331,7 +331,7 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     >
                       00:00 - 06:03
                     </span>
@@ -340,11 +340,11 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
               </styled.div>
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                       HKT
                       -
@@ -353,7 +353,7 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     >
                       00:00 - 03:52
                     </span>
@@ -372,18 +372,18 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
             >
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                       В пути
                     </span>
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     >
                       2022ч 3м
                     </span>
@@ -392,18 +392,18 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
               </styled.div>
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                       В пути
                     </span>
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     >
                       3ч 52м
                     </span>
@@ -422,11 +422,11 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
             >
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                       3
                        пересадки
@@ -434,7 +434,7 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     >
                       KV,LG,HKT
                     </span>
@@ -443,11 +443,11 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
               </styled.div>
               <styled.div>
                 <div
-                  className="sc-hKgILt lcRqhO"
+                  className="sc-hKgILt hNEWQR"
                 >
                   <styled.span>
                     <span
-                      className="sc-eCssSg cjdKsd"
+                      className="sc-eCssSg jJBKym"
                     >
                       2
                        пересадки
@@ -455,7 +455,7 @@ exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
                   </styled.span>
                   <styled.span>
                     <span
-                      className="sc-jSgupP bdsxmA"
+                      className="sc-jSgupP lcodnf"
                     >
                       KV,LG,HKT
                     </span>

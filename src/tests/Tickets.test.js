@@ -21,12 +21,15 @@ const props = {
 };
 
 describe('Testing rendering <Ticket/>', () => {
+  
   it('should rendering Ticket with props', () => {
     const ticket = mount(<Ticket {...props} />);
     expect(toJson(ticket)).toMatchSnapshot();
   });
+
   it('should rendering Ticket correctly without props', () => {
     const ticket = mount(<Ticket />);
     expect(toJson(ticket)).toMatchSnapshot();
   });
+
 });
