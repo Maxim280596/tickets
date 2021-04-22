@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { WHITE_COLOR, BOX_COLOR } from './GlobalConstStyles';
+import { WHITE_COLOR, BOX_COLOR, FORM_MEDIA_IPADPRO } from './GlobalConstStyles';
 
 export const StyledForm = styled.form`
   font-size: 20px;
@@ -22,7 +22,7 @@ export const StyledForm = styled.form`
     margin-left: 25px;
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: ${FORM_MEDIA_IPADPRO}) {
     width: 100%;
     margin-left: 0px;
     margin-bottom: 20px;

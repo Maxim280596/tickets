@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing <Search/> should Search have be rendered correctly 1`] = `
+<div>
+  <form
+    class="sc-bdfBwQ hDyynQ"
+  >
+    <h5>
+      КОЛИЧЕСТВО ПЕРЕСАДОК
+    </h5>
+    <div>
+      <div
+        class="sc-gsTCUz cOAnzj form-check"
+      >
+        <input
+          checked=""
+          class="form-check-input"
+          length="10"
+          type="checkbox"
+          value="Все"
+        />
+        <label
+          class="form-check-label"
+          title=""
+        >
+          Все
+        </label>
+      </div>
+      <div
+        class="sc-gsTCUz cOAnzj form-check"
+      >
+        <input
+          class="form-check-input"
+          length="0"
+          type="checkbox"
+          value="Без пересадки"
+        />
+        <label
+          class="form-check-label"
+          title=""
+        >
+          Без пересадки
+        </label>
+      </div>
+      <div
+        class="sc-gsTCUz cOAnzj form-check"
+      >
+        <input
+          class="form-check-input"
+          length="1"
+          type="checkbox"
+          value="1 пересадка"
+        />
+        <label
+          class="form-check-label"
+          title=""
+        >
+          1 пересадка
+        </label>
+      </div>
+      <div
+        class="sc-gsTCUz cOAnzj form-check"
+      >
+        <input
+          class="form-check-input"
+          length="2"
+          type="checkbox"
+          value="2 пересадки"
+        />
+        <label
+          class="form-check-label"
+          title=""
+        >
+          2 пересадки
+        </label>
+      </div>
+      <div
+        class="sc-gsTCUz cOAnzj form-check"
+      >
+        <input
+          class="form-check-input"
+          length="3"
+          type="checkbox"
+          value="3 пересадки"
+        />
+        <label
+          class="form-check-label"
+          title=""
+        >
+          3 пересадки
+        </label>
+      </div>
+    </div>
+  </form>
+</div>
+`;

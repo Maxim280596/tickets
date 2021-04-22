@@ -1,0 +1,472 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing rendering <Ticket/> should rendering Ticket correctly without props 1`] = `
+<Ticket>
+  <styled.div>
+    <div
+      className="sc-bdfBwQ kbqjdu"
+    >
+      <Row
+        noGutters={false}
+      >
+        <div
+          className="row"
+        >
+          <Col
+            lg={4}
+            sm={5}
+            xs={5}
+          >
+            <div
+              className="col-lg-4 col-sm-5 col-5"
+            >
+              <Styled(Col)>
+                <Col
+                  className="sc-gsTCUz jzgiUW"
+                >
+                  <div
+                    className="sc-gsTCUz jzgiUW col"
+                  >
+                     р.
+                  </div>
+                </Col>
+              </Styled(Col)>
+            </div>
+          </Col>
+          <Col
+            lg={
+              Object {
+                "offset": 4,
+                "span": 4,
+              }
+            }
+            sm={
+              Object {
+                "offset": 3,
+                "span": 4,
+              }
+            }
+            xs={
+              Object {
+                "offset": 2,
+                "span": 5,
+              }
+            }
+          >
+            <div
+              className="col-lg-4 col-sm-4 col-5 offset-lg-4 offset-sm-3 offset-2"
+            >
+              <div>
+                <styled.img
+                  alt="s7 airlines logo"
+                  src="https://upload.wikimedia.org/wikipedia/commons/c/c2/S7_new_logo.svg"
+                >
+                  <img
+                    alt="s7 airlines logo"
+                    className="sc-dlfnbm iBFTdI"
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/c2/S7_new_logo.svg"
+                  />
+                </styled.img>
+              </div>
+            </div>
+          </Col>
+          <Col
+            lg={4}
+            sm={4}
+            xs={4}
+          >
+            <div
+              className="col-lg-4 col-sm-4 col-4"
+            >
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                      -
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    >
+                      Inval - Inval
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                      -
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    >
+                      Inval - Inval
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+            </div>
+          </Col>
+          <Col
+            lg={4}
+            sm={4}
+            xs={4}
+          >
+            <div
+              className="col-lg-4 col-sm-4 col-4"
+            >
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                      В пути
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    >
+                      NaNч NaNм
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                      В пути
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    >
+                      NaNч NaNм
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+            </div>
+          </Col>
+          <Col
+            lg={4}
+            sm={4}
+            xs={4}
+          >
+            <div
+              className="col-lg-4 col-sm-4 col-4"
+            >
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                       пересадки
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    />
+                  </styled.span>
+                </div>
+              </styled.div>
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                       пересадки
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    />
+                  </styled.span>
+                </div>
+              </styled.div>
+            </div>
+          </Col>
+        </div>
+      </Row>
+    </div>
+  </styled.div>
+</Ticket>
+`;
+
+exports[`Testing rendering <Ticket/> should rendering Ticket with props 1`] = `
+<Ticket
+  departureDate="12342"
+  departureDateBack="232333"
+  destination="HKT"
+  destinationBack="MOW"
+  duration="121323"
+  durationBack="232"
+  origin="MOW"
+  originBack="HKT"
+  price="100"
+  stops="3"
+  stopsBack="2"
+  stopsCity="KV,LG,HKT"
+  stopsCityBack="KV,LG,HKT"
+>
+  <styled.div>
+    <div
+      className="sc-bdfBwQ kbqjdu"
+    >
+      <Row
+        noGutters={false}
+      >
+        <div
+          className="row"
+        >
+          <Col
+            lg={4}
+            sm={5}
+            xs={5}
+          >
+            <div
+              className="col-lg-4 col-sm-5 col-5"
+            >
+              <Styled(Col)>
+                <Col
+                  className="sc-gsTCUz jzgiUW"
+                >
+                  <div
+                    className="sc-gsTCUz jzgiUW col"
+                  >
+                    100
+                     р.
+                  </div>
+                </Col>
+              </Styled(Col)>
+            </div>
+          </Col>
+          <Col
+            lg={
+              Object {
+                "offset": 4,
+                "span": 4,
+              }
+            }
+            sm={
+              Object {
+                "offset": 3,
+                "span": 4,
+              }
+            }
+            xs={
+              Object {
+                "offset": 2,
+                "span": 5,
+              }
+            }
+          >
+            <div
+              className="col-lg-4 col-sm-4 col-5 offset-lg-4 offset-sm-3 offset-2"
+            >
+              <div>
+                <styled.img
+                  alt="s7 airlines logo"
+                  src="https://upload.wikimedia.org/wikipedia/commons/c/c2/S7_new_logo.svg"
+                >
+                  <img
+                    alt="s7 airlines logo"
+                    className="sc-dlfnbm iBFTdI"
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/c2/S7_new_logo.svg"
+                  />
+                </styled.img>
+              </div>
+            </div>
+          </Col>
+          <Col
+            lg={4}
+            sm={4}
+            xs={4}
+          >
+            <div
+              className="col-lg-4 col-sm-4 col-4"
+            >
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                      MOW
+                      -
+                      HKT
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    >
+                      00:00 - 06:03
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                      HKT
+                      -
+                      MOW
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    >
+                      00:00 - 03:52
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+            </div>
+          </Col>
+          <Col
+            lg={4}
+            sm={4}
+            xs={4}
+          >
+            <div
+              className="col-lg-4 col-sm-4 col-4"
+            >
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                      В пути
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    >
+                      2022ч 3м
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                      В пути
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    >
+                      3ч 52м
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+            </div>
+          </Col>
+          <Col
+            lg={4}
+            sm={4}
+            xs={4}
+          >
+            <div
+              className="col-lg-4 col-sm-4 col-4"
+            >
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                      3
+                       пересадки
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    >
+                      KV,LG,HKT
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+              <styled.div>
+                <div
+                  className="sc-hKgILt hNEWQR"
+                >
+                  <styled.span>
+                    <span
+                      className="sc-eCssSg jJBKym"
+                    >
+                      2
+                       пересадки
+                    </span>
+                  </styled.span>
+                  <styled.span>
+                    <span
+                      className="sc-jSgupP lcodnf"
+                    >
+                      KV,LG,HKT
+                    </span>
+                  </styled.span>
+                </div>
+              </styled.div>
+            </div>
+          </Col>
+        </div>
+      </Row>
+    </div>
+  </styled.div>
+</Ticket>
+`;
